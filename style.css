@@ -277,8 +277,8 @@ section {
 }
 
 .nav-logo img {
-    height: 36px;
-    width: 140px; /* Use dimensions from original HTML */
+    height: 66px;
+    width: 170px; /* Use dimensions from original HTML */
     transition: filter var(--transition-fast);
     
     /* COMMENT: Make logo WHITE by default using filter
