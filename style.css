@@ -276,10 +276,13 @@ section {
     flex-shrink: 0;
 }
 
+/* This version forces the dimensions */
 .nav-logo img {
-    height: 36px;
-    width: 140px; /* Use dimensions from original HTML */
+    height: 40px !important;  /* Add !important */
+    width: 150px !important;  /* Add !important */
     transition: filter var(--transition-fast);
+    filter: brightness(0) invert(1) grayscale(100) brightness(200%);
+}
     
     /* COMMENT: Make logo WHITE by default using filter
       - This assumes the original logo.svg is dark/purple
