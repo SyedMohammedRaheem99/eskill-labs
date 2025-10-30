@@ -267,10 +267,34 @@ section {
     height: 80px;
 }
 
+/* COMMENT: Logo Fix (v3 - CSS Filter Method)
+  - This method targets the <img> tag directly, as requested.
+  - No HTML changes are needed.
+*/
+.nav-logo {
+    /* This empty class is in the HTML, we can keep it */
+    flex-shrink: 0;
+}
+
 .nav-logo img {
     height: 36px;
-    width: auto;
+    width: 140px; /* Use dimensions from original HTML */
+    transition: filter var(--transition-fast);
+    
+    /* COMMENT: Make logo WHITE by default using filter
+      - This assumes the original logo.svg is dark/purple
+      - This string of filters makes it black, inverts it to white, and brightens it.
+    */
+    filter: brightness(0) invert(1) grayscale(100) brightness(200%);
 }
+
+/* COMMENT: When header is scrolled, remove filter to show original logo color */
+.header.scrolled .nav-logo img {
+    filter: none;
+}
+/* COMMENT: End of Logo Fix (v3)
+*/
+
 
 .nav-menu {
     display: flex;
@@ -281,9 +305,42 @@ section {
 .nav-link {
     font-size: var(--font-size-base);
     font-weight: 500;
-    color: var(--color-text-body);
     padding: var(--spacing-sm) var(--spacing-xs);
     position: relative;
+    transition: color var(--transition-fast);
+}
+
+/* COMMENT: On dark backgrounds (like this page header), nav links must be white */
+.header:not(.scrolled) .nav-link {
+    color: var(--color-white);
+}
+
+.header:not(.scrolled) .nav-link.active {
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.header:not(.scrolled) .nav-link:hover {
+    color: var(--color-white);
+}
+
+.header:not(.scrolled) .nav-link::after {
+    background-color: var(--color-white);
+}
+
+/* COMMENT: Scrolled state link colors (revert to default) */
+.header.scrolled .nav-link {
+    color: var(--color-text-body);
+}
+.header.scrolled .nav-link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+.header.scrolled .nav-link:hover {
+    color: var(--color-primary);
+}
+.header.scrolled .nav-link::after {
+    background-color: var(--color-primary);
 }
 
 .nav-link::after {
@@ -294,22 +351,12 @@ section {
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background-color: var(--color-primary);
-    transition: var(--transition-fast);
+    transition: width var(--transition-fast);
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
     width: 100%;
-}
-
-.nav-link.active {
-    color: var(--color-primary);
-    font-weight: 600;
-}
-
-.nav-link:hover {
-    color: var(--color-primary);
 }
 
 .nav-cta {
@@ -341,6 +388,14 @@ section {
     transition: var(--transition-base);
 }
 
+/* COMMENT: Make hamburger bars white on dark backgrounds */
+.header:not(.scrolled) .bar {
+    background-color: var(--color-white);
+}
+.header.scrolled .bar {
+    background-color: var(--color-text-dark);
+}
+
 /* ---------------------------------
 7. Page Header (Specific to Work Page)
 ---------------------------------
@@ -351,6 +406,8 @@ section {
     color: var(--color-white);
     position: relative;
     overflow: hidden;
+    margin-top: -80px; /* Pull up to sit behind the sticky header */
+    padding-top: calc(var(--spacing-3xl) + 80px); /* Add padding to account for header height */
 }
 
 .page-header h1 {
@@ -492,6 +549,7 @@ section {
     height: 100%;
     object-fit: cover;
     transition: transform 0.4s ease;
+    filter: none; /* COMMENT: Reset filter for images inside cards */
 }
 .project-card:hover .project-image img {
     transform: scale(1.05);
@@ -623,6 +681,7 @@ section {
     height: 300px;
     object-fit: cover;
     transition: transform 0.4s ease;
+    filter: none; /* COMMENT: Reset filter for images inside cards */
 }
 
 .gallery-overlay {
@@ -863,7 +922,8 @@ section {
     height: 36px;
     width: auto;
     margin-bottom: var(--spacing-md);
-    filter: brightness(0) invert(1) grayscale(100) brightness(5); /* Makes logo white */
+    /* COMMENT: This filter makes the SVG logo white. This is fine for the footer. */
+    filter: brightness(0) invert(1) grayscale(100) brightness(5);
 }
 .footer-about p {
     font-size: var(--font-size-sm);
@@ -1077,6 +1137,13 @@ Mobile (max-width: 768px)
         font-weight: 600;
         padding: var(--spacing-md);
         border-radius: var(--border-radius-md);
+    }
+    /* COMMENT: Mobile nav link colors are always the default */
+    .header:not(.scrolled) .nav-link {
+        color: var(--color-text-body);
+    }
+    .header:not(.scrolled) .nav-link.active {
+        color: var(--color-primary);
     }
     .nav-link:hover {
         background-color: var(--color-primary-light);
