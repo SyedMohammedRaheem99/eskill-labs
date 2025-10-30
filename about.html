@@ -7,313 +7,306 @@
     <meta name="keywords" content="eSkillLab about, technology lab provider, skill development, NSDC ASDC, lab solutions India">
     <title>About Us - eSkillLab</title>
     
-    <!-- Google Fonts - Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html"><img src="logo.svg" alt="eSkillLab Logo"></a>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link active">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="labs.html" class="nav-link">Labs</a>
-                </li>
-                <li class="nav-item">
-                    <a href="work.html" class="nav-link">Work</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <header class="header" id="header">
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="logo.svg" alt="eSkillLab Homepage" width="150" height="40">
+                    </a>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link active" aria-current="page">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="labs.html" class="nav-link">Labs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="work.html" class="nav-link">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                
+                <button class="hamburger" id="hamburger-button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <header class="page-header">
         <div class="container">
             <h1>About eSkillLab</h1>
             <p>Empowering innovation through practical technology training</p>
-            <nav class="breadcrumb">
-                <a href="index.html">Home</a> / <span>About Us</span>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li><span aria-current="page">About Us</span></li>
+                </ol>
             </nav>
         </div>
-    </section>
+    </header>
 
-    <!-- Our Story Section -->
-    <section class="about-story">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Our Story</h2>
-                    <p class="lead">Founded with a vision to bridge the gap between academic learning and industry requirements, eSkillLab has emerged as India's leading provider of government-recognized technology labs.</p>
-                    
-                    <p>Since our inception, we have been committed to transforming educational institutions across India by providing state-of-the-art laboratories that align with the latest industry standards and government initiatives like Skill India, NSDC, and ASDC.</p>
-                    
-                    <p>Our journey began with the recognition that traditional laboratory setups were insufficient to prepare students for the rapidly evolving technology landscape. We set out to change this by creating comprehensive, future-ready lab solutions that combine theoretical knowledge with hands-on practical experience.</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <h3>500+</h3>
-                            <p>Labs Delivered</p>
+    <main>
+
+        <section class="about-story" aria-labelledby="story-title">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 id="story-title">Our Story</h2>
+                        <p class="lead">Founded with a vision to bridge the gap between academic learning and industry requirements, eSkillLab has emerged as India's leading provider of government-recognized technology labs.</p>
+                        <p>Since our inception, we have been committed to transforming educational institutions across India by providing state-of-the-art laboratories that align with the latest industry standards and government initiatives like Skill India, NSDC, and ASDC.</p>
+                        <p>Our journey began with the recognition that traditional laboratory setups were insufficient to prepare students for the rapidly evolving technology landscape. We set out to change this by creating comprehensive, future-ready lab solutions that combine theoretical knowledge with hands-on practical experience.</p>
+                        
+                        <ul class="stats-grid">
+                            <li class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Labs Delivered</span>
+                            </li>
+                            <li class="stat-item">
+                                <span class="stat-number">200+</span>
+                                <span class="stat-label">Institutions Served</span>
+                            </li>
+                            <li class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Expert Engineers</span>
+                            </li>
+                            <li class="stat-item">
+                                <span class="stat-number">25+</span>
+                                <span class="stat-label">States Covered</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="A professional team collaborating in a modern office environment." loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission-vision" aria-labelledby="mission-vision-title">
+            <div class="container">
+                <h2 id="mission-vision-title" class="sr-only">Our Mission and Vision</h2>
+                <div class="mission-vision-grid">
+                    <article class="mission-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye" aria-hidden="true"></i>
                         </div>
-                        <div class="stat-item">
-                            <h3>200+</h3>
-                            <p>Institutions Served</p>
+                        <h3>Our Mission</h3>
+                        <p>To empower educational institutions and industry with cutting-edge technology labs that bridge the skills gap and prepare the next generation of innovators for the digital future.</p>
+                    </article>
+                    <article class="vision-card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
                         </div>
-                        <div class="stat-item">
-                            <h3>50+</h3>
-                            <p>Expert Engineers</p>
+                        <h3>Our Vision</h3>
+                        <p>To be India's most trusted partner in technology education, creating a nationwide network of future-ready laboratories that drive innovation and skill development.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="core-values" aria-labelledby="values-title">
+            <div class="container">
+                <h2 class="section-title" id="values-title">Our Core Values</h2>
+                <ul class="values-grid">
+                    <li class="value-item">
+                        <div class="value-icon"><i class="fas fa-lightbulb" aria-hidden="true"></i></div>
+                        <h3>Innovation</h3>
+                        <p>We constantly evolve our solutions to incorporate the latest technologies and methodologies.</p>
+                    </li>
+                    <li class="value-item">
+                        <div class="value-icon"><i class="fas fa-handshake" aria-hidden="true"></i></div>
+                        <h3>Integrity</h3>
+                        <p>We maintain the highest standards of transparency and honesty in all our interactions.</p>
+                    </li>
+                    <li class="value-item">
+                        <div class="value-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
+                        <h3>Collaboration</h3>
+                        <p>We work closely with institutions to understand their unique needs and challenges.</p>
+                    </li>
+                    <li class="value-item">
+                        <div class="value-icon"><i class="fas fa-award" aria-hidden="true"></i></div>
+                        <h3>Excellence</h3>
+                        <p>We strive for excellence in every project, ensuring superior quality and service delivery.</p>
+                    </li>
+                    <li class="value-item">
+                        <div class="value-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
+                        <h3>Education</h3>
+                        <p>We are committed to advancing technology education and skill development in India.</p>
+                    </li>
+                    <li class="value-item">
+                        <div class="value-icon"><i class="fas fa-cogs" aria-hidden="true"></i></div>
+                        <h3>Reliability</h3>
+                        <p>Our clients trust us to deliver consistent, reliable solutions that stand the test of time.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="our-process" aria-labelledby="process-title">
+            <div class="container">
+                <h2 class="section-title" id="process-title">Our Approach</h2>
+                <ol class="process-steps">
+                    <li class="process-step">
+                        <span class="step-number" aria-hidden="true">1</span>
+                        <h3>Consultation</h3>
+                        <p>We begin with detailed consultations to understand your specific requirements and goals.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="step-number" aria-hidden="true">2</span>
+                        <h3>Assessment</h3>
+                        <p>Comprehensive assessment of your existing infrastructure and space constraints.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="step-number" aria-hidden="true">3</span>
+                        <h3>Design</h3>
+                        <p>Custom design of lab layout and equipment configuration for optimal functionality.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="step-number" aria-hidden="true">4</span>
+                        <h3>Procurement</h3>
+                        <p>Sourcing and procurement of government-approved, certified equipment and software.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="step-number" aria-hidden="true">5</span>
+                        <h3>Installation</h3>
+                        <p>Professional installation and integration of all lab components and systems.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="step-number" aria-hidden="true">6</span>
+                        <h3>Training</h3>
+                        <p>Comprehensive training for faculty and staff on lab operations and maintenance.</p>
+                    </li>
+                    <li class="process-step">
+                        <span class="step-number" aria-hidden="true">7</span>
+                        <h3>Support</h3>
+                        <p>Ongoing technical support and maintenance to ensure optimal lab performance.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="team-section" aria-labelledby="team-title">
+            <div class="container">
+                <h2 class="section-title" id="team-title">Our Leadership Team</h2>
+                <p class="section-subtitle">Meet the experts driving innovation in technology education</p>
+                <ul class="team-grid">
+                    <li class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Portrait of Rajesh Kumar, Chief Executive Officer." loading="lazy">
                         </div>
-                        <div class="stat-item">
-                            <h3>25+</h3>
-                            <p>States Covered</p>
+                        <div class="member-info">
+                            <h3>Rajesh Kumar</h3>
+                            <p class="position">Chief Executive Officer</p>
+                            <p class="bio">20+ years in technology education and skill development. Former NSDC advisor with expertise in scaling educational initiatives.</p>
                         </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="eSkillLab Team" loading="lazy">
-                </div>
+                    </li>
+                    <li class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Portrait of Dr. Priya Sharma, Chief Technology Officer." loading="lazy">
+                        </div>
+                        <div class="member-info">
+                            <h3>Dr. Priya Sharma</h3>
+                            <p class="position">Chief Technology Officer</p>
+                            <p class="bio">PhD in Electronics Engineering. Former principal investigator at IIT with 15+ years in laboratory design and automation systems.</p>
+                        </div>
+                    </li>
+                    <li class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Portrait of Arun Patel, VP of Operations." loading="lazy">
+                        </div>
+                        <div class="member-info">
+                            <h3>Arun Patel</h3>
+                            <p class="position">VP of Operations</p>
+                            <p class="bio">Expert in project management and operations with proven track record of delivering 500+ successful lab implementations across India.</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Mission & Vision Section -->
-    <section class="mission-vision">
-        <div class="container">
-            <div class="mission-vision-grid">
-                <div class="mission-card">
-                    <div class="card-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Our Mission</h3>
-                    <p>To empower educational institutions and industry with cutting-edge technology labs that bridge the skills gap and prepare the next generation of innovators for the digital future.</p>
-                </div>
-                <div class="vision-card">
-                    <div class="card-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Our Vision</h3>
-                    <p>To be India's most trusted partner in technology education, creating a nationwide network of future-ready laboratories that drive innovation and skill development.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Values Section -->
-    <section class="core-values">
-        <div class="container">
-            <h2 class="section-title">Our Core Values</h2>
-            <div class="values-grid">
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Innovation</h3>
-                    <p>We constantly evolve our solutions to incorporate the latest technologies and methodologies.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Integrity</h3>
-                    <p>We maintain the highest standards of transparency and honesty in all our interactions.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Collaboration</h3>
-                    <p>We work closely with institutions to understand their unique needs and challenges.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>Excellence</h3>
-                    <p>We strive for excellence in every project, ensuring superior quality and service delivery.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Education</h3>
-                    <p>We are committed to advancing technology education and skill development in India.</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Reliability</h3>
-                    <p>Our clients trust us to deliver consistent, reliable solutions that stand the test of time.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Process Section -->
-    <section class="our-process">
-        <div class="container">
-            <h2 class="section-title">Our Approach</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Consultation</h3>
-                    <p>We begin with detailed consultations to understand your specific requirements and goals.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Assessment</h3>
-                    <p>Comprehensive assessment of your existing infrastructure and space constraints.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Design</h3>
-                    <p>Custom design of lab layout and equipment configuration for optimal functionality.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Procurement</h3>
-                    <p>Sourcing and procurement of government-approved, certified equipment and software.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <h3>Installation</h3>
-                    <p>Professional installation and integration of all lab components and systems.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">6</div>
-                    <h3>Training</h3>
-                    <p>Comprehensive training for faculty and staff on lab operations and maintenance.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">7</div>
-                    <h3>Support</h3>
-                    <p>Ongoing technical support and maintenance to ensure optimal lab performance.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team-section">
-        <div class="container">
-            <h2 class="section-title">Our Leadership Team</h2>
-            <p class="section-subtitle">Meet the experts driving innovation in technology education</p>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="CEO" loading="lazy">
-                    </div>
-                    <div class="member-info">
-                        <h3>Rajesh Kumar</h3>
-                        <p class="position">Chief Executive Officer</p>
-                        <p class="bio">20+ years in technology education and skill development. Former NSDC advisor with expertise in scaling educational initiatives.</p>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="CTO" loading="lazy">
-                    </div>
-                    <div class="member-info">
-                        <h3>Dr. Priya Sharma</h3>
-                        <p class="position">Chief Technology Officer</p>
-                        <p class="bio">PhD in Electronics Engineering. Former principal investigator at IIT with 15+ years in laboratory design and automation systems.</p>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="VP Operations" loading="lazy">
-                    </div>
-                    <div class="member-info">
-                        <h3>Arun Patel</h3>
-                        <p class="position">VP of Operations</p>
-                        <p class="bio">Expert in project management and operations with proven track record of delivering 500+ successful lab implementations across India.</p>
+        <section class="cta-section" aria-labelledby="cta-title">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 id="cta-title">Ready to Transform Your Institution?</h2>
+                    <p>Partner with eSkillLab to create world-class technology labs that prepare your students for the future.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Get Started Today</a>
+                        <a href="labs.html" class="btn btn-secondary">Explore Our Labs</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Institution?</h2>
-                <p>Partner with eSkillLab to create world-class technology labs that prepare your students for the future.</p>
-                <div class="cta-buttons">
-                    <a href="contact.html"><button class="btn-primary">Get Started Today</button></a>
-                    <a href="labs.html"><button class="btn-secondary">Explore Our Labs</button></a>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="logo.svg" alt="eSkillLab Logo">
+                <div class="footer-about">
+                    <img src="logo.svg" alt="eSkillLab Logo" width="150" height="40" loading="lazy">
                     <p>Empowering innovation through practical technology training.</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
+                
+                <nav class="footer-nav" aria-labelledby="quick-links-title">
+                    <h4 id="quick-links-title">Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="about.html" aria-current="page">About</a></li>
                         <li><a href="labs.html">Labs</a></li>
                         <li><a href="work.html">Work</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
-                </div>
-                <div class="footer-labs">
-                    <h4>Our Labs</h4>
+                </nav>
+                
+                <nav class="footer-nav" aria-labelledby="our-labs-title">
+                    <h4 id="our-labs-title">Our Labs</h4>
                     <ul>
                         <li><a href="ev-lab.html">Electric Vehicle Lab</a></li>
                         <li><a href="ai-lab.html">AI & Machine Learning</a></li>
-                        <li><a href="iot-lab.html">Industrial IoT Lab</a></li>
+                        <li><a href="iot-lab.html">Industrial IoT Lab</a>
+                        <li><a href="BI-lab.html">Business Intelligence Lab</a></li> 
                         <li><a href="labs.html">View All Labs</a></li>
                     </ul>
-                </div>
+                </nav>
+                
                 <div class="footer-social">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <h4 id="social-title">Follow Us</h4>
+                    <ul class="social-links" aria-labelledby="social-title">
+                        <li><a href="#" aria-label="Visit our Facebook page"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#" aria-label="Visit our Twitter profile"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#" aria-label="Visit our LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#" aria-label="Visit our Instagram profile"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
                 <p>&copy; 2025 eSkillLab. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- External JavaScript -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
