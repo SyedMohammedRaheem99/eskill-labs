@@ -3,73 +3,1126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Our Work - eSkillLab Portfolio</title>
     <meta name="description" content="Our Work - Portfolio of successful technology lab implementations by eSkillLab. Case studies and project gallery.">
     <meta name="keywords" content="eSkillLab portfolio, lab implementations, technology projects, case studies, successful installations">
-    <meta name="theme-color" content="#4f46e5"> <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://images.unsplash.com">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#6366f1">
+    <title>Our Work - eSkillLab</title>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===================================
+           MODERN RESET & BASE STYLES
+        =================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #F8F9FF;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        img, picture, video, canvas, svg {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* ===================================
+           VARIABLES
+        =================================== */
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #06b6d4;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-light: linear-gradient(135deg, #f8f9ff 0%, #e8eaff 100%);
+            --dark: #1e293b;
+            --text: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --bg: #F8F9FF;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --gold: #fbbf24;
+            --shadow-sm: 0 2px 8px rgba(99, 102, 241, 0.08);
+            --shadow-md: 0 4px 16px rgba(99, 102, 241, 0.12);
+            --shadow-lg: 0 8px 32px rgba(99, 102, 241, 0.16);
+            --shadow-xl: 0 16px 48px rgba(99, 102, 241, 0.2);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        /* ===================================
+           CONTAINER & UTILITIES
+        =================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===================================
+           NAVIGATION
+        =================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* ===================================
+           PAGE HEADER
+        =================================== */
+        .page-header {
+            padding: 140px 0 80px;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: backgroundScroll 20s linear infinite;
+        }
+
+        @keyframes backgroundScroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb ol {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-left: 0.5rem;
+        }
+
+        .breadcrumb a {
+            transition: opacity 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* ===================================
+           PORTFOLIO STATS
+        =================================== */
+        .portfolio-stats {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--gradient-light);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            background: white;
+        }
+
+        .stat-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+
+        .stat-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .stat-card h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+
+        /* ===================================
+           FEATURED PROJECTS
+        =================================== */
+        .featured-projects {
+            padding: 80px 0;
+            background: var(--bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.4s ease;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-card:nth-child(even) {
+            direction: rtl;
+        }
+
+        .project-card:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .project-image {
+            position: relative;
+            height: 100%;
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-category {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .project-location {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-location i {
+            color: var(--primary);
+        }
+
+        .project-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding: 1.5rem 0;
+            border-top: 2px solid var(--border);
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item {
+            text-align: center;
+            padding: 0.75rem;
+            background: var(--gradient-light);
+            border-radius: var(--radius-sm);
+        }
+
+        .detail-item strong {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+        }
+
+        .btn-secondary {
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ===================================
+           PROJECT GALLERY
+        =================================== */
+        .project-gallery {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background: var(--bg);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ===================================
+           TESTIMONIALS
+        =================================== */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--gradient-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .rating {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rating i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .testimonial-content p {
+            color: var(--text);
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .testimonial-author {
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .author-info h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* ===================================
+           PROCESS TIMELINE
+        =================================== */
+        .process-timeline {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gradient);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 1;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-marker {
+            grid-column: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            grid-column: 3;
+            text-align: left;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-marker {
+            grid-column: 2;
+        }
+
+        .timeline-marker {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 8px var(--bg), 0 8px 24px rgba(102, 126, 234, 0.4);
+            z-index: 1;
+        }
+
+        .timeline-marker i {
+            font-size: 1.75rem;
+            color: white;
+        }
+
+        .timeline-content {
+            background: var(--gradient-light);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            background: white;
+            box-shadow: var(--shadow-lg);
+            transform: scale(1.05);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ===================================
+           CTA SECTION
+        =================================== */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section .btn-secondary {
+            border-color: white;
+            color: white;
+            background: transparent;
+        }
+
+        .cta-section .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* ===================================
+           FOOTER
+        =================================== */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-about img {
+            height: 40px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-about p {
+            color: #94a3b8;
+            line-height: 1.7;
+            max-width: 350px;
+        }
+
+        .footer-nav h4,
+        .footer-social h4 {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-nav ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-nav a {
+            color: #94a3b8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--primary-light);
+            padding-left: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #334155;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* ===================================
+           ANIMATIONS
+        =================================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===================================
+           RESPONSIVE
+        =================================== */
+        @media (max-width: 1024px) {
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card:nth-child(even) {
+                direction: ltr;
+            }
+
+            .project-image {
+                min-height: 300px;
+            }
+
+            .timeline::before {
+                left: 35px;
+            }
+
+            .timeline-item {
+                grid-template-columns: auto 1fr;
+                gap: 2rem;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-content {
+                grid-column: 2;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(even) .timeline-marker,
+            .timeline-item:nth-child(odd) .timeline-marker {
+                grid-column: 1;
+            }
+
+            .timeline-marker {
+                width: 60px;
+                height: 60px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-about {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                width: 100%;
+                height: calc(100vh - 70px);
+                text-align: center;
+                transition: left 0.3s ease;
+                padding: 2rem 0;
+                box-shadow: var(--shadow-lg);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-details {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-content {
+                padding: 1.5rem;
+            }
+
+            .timeline-marker {
+                width: 50px;
+                height: 50px;
+            }
+
+            .timeline-marker i {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header class="header" id="header">
-        <nav class="navbar container" aria-label="Main navigation">
-            <div class="nav-logo">
-                <a href="index.html">
-                    <img src="logo.svg" alt="eSkillLab Homepage" width="140" height="36">
-                </a>
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="logo.svg" alt="eSkillLab Homepage" width="150" height="40">
+                    </a>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="labs.html" class="nav-link">Labs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="work.html" class="nav-link active" aria-current="page">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                
+                <button class="hamburger" id="hamburger-button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                </button>
             </div>
-            
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="labs.html" class="nav-link">Labs</a>
-                </li>
-                <li class="nav-item">
-                    <a href="work.html" class="nav-link active" aria-current="page">Work</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link btn btn-primary nav-cta">Contact Us</a>
-                </li>
-            </ul>
-            
-            <button class="hamburger" id="hamburger-button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
-                <span class="bar" aria-hidden="true"></span>
-                <span class="bar" aria-hidden="true"></span>
-                <span class="bar" aria-hidden="true"></span>
-            </button>
         </nav>
     </header>
 
     <header class="page-header">
         <div class="container">
-            <div class="page-header-content fade-in-up">
-                <nav class="breadcrumb" aria-label="Breadcrumb">
-                    <ol>
-                        <li><a href="index.html">Home</a></li>
-                        <li><i class="fas fa-chevron-right" aria-hidden="true"></i></li>
-                        <li><span aria-current="page">Our Work</span></li>
-                    </ol>
-                </nav>
-                <h1>Our Work & Portfolio</h1>
-                <p class="section-subtitle">Showcasing successful technology lab implementations across India</p>
-            </div>
+            <h1>Our Work & Portfolio</h1>
+            <p>Showcasing successful technology lab implementations across India</p>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li><span aria-current="page">Our Work</span></li>
+                </ol>
+            </nav>
         </div>
-        <div class="header-gradient-overlay"></div>
     </header>
 
     <main>
@@ -78,41 +1131,33 @@
             <div class="container">
                 <h2 id="stats-title" class="sr-only">Portfolio Statistics</h2>
                 <div class="stats-grid">
-                    <div class="stat-card fade-in-up" style="--delay: 0s;">
+                    <div class="stat-card">
                         <div class="stat-icon">
                             <i class="fas fa-school" aria-hidden="true"></i>
                         </div>
-                        <div class="stat-content">
-                            <h3><span class="stat-number" data-target="500">0</span>+</h3>
-                            <p>Lab Implementations</p>
-                        </div>
+                        <h3><span class="stat-number" data-target="500">0</span>+</h3>
+                        <p>Lab Implementations</p>
                     </div>
-                    <div class="stat-card fade-in-up" style="--delay: 0.1s;">
+                    <div class="stat-card">
                         <div class="stat-icon">
                             <i class="fas fa-university" aria-hidden="true"></i>
                         </div>
-                        <div class="stat-content">
-                            <h3><span class="stat-number" data-target="200">0</span>+</h3>
-                            <p>Institutions Served</p>
-                        </div>
+                        <h3><span class="stat-number" data-target="200">0</span>+</h3>
+                        <p>Institutions Served</p>
                     </div>
-                    <div class="stat-card fade-in-up" style="--delay: 0.2s;">
+                    <div class="stat-card">
                         <div class="stat-icon">
                             <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                         </div>
-                        <div class="stat-content">
-                            <h3><span class="stat-number" data-target="25">0</span>+</h3>
-                            <p>States Covered</p>
-                        </div>
+                        <h3><span class="stat-number" data-target="25">0</span>+</h3>
+                        <p>States Covered</p>
                     </div>
-                    <div class="stat-card fade-in-up" style="--delay: 0.3s;">
+                    <div class="stat-card">
                         <div class="stat-icon">
                             <i class="fas fa-users" aria-hidden="true"></i>
                         </div>
-                        <div class="stat-content">
-                            <h3><span class="stat-number" data-target="50000">0</span>+</h3>
-                            <p>Students Trained</p>
-                        </div>
+                        <h3><span class="stat-number" data-target="50000">0</span>+</h3>
+                        <p>Students Trained</p>
                     </div>
                 </div>
             </div>
@@ -120,16 +1165,14 @@
 
         <section class="featured-projects" aria-labelledby="projects-title">
             <div class="container">
-                <div class="section-header fade-in-up">
-                    <h2 class="section-title" id="projects-title">Featured Projects</h2>
-                    <p class="section-subtitle">Some of our most impactful lab implementations</p>
-                </div>
+                <h2 class="section-title" id="projects-title">Featured Projects</h2>
+                <p class="section-subtitle">Some of our most impactful lab implementations</p>
                 
                 <div class="projects-grid">
-                    <article class="project-card fade-in-up" style="--delay: 0.1s;">
+                    <article class="project-card">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="IIT Delhi EV Lab" loading="lazy">
-                            <span class="project-category">Electric Vehicle Lab</span>
+                            <div class="project-category">Electric Vehicle Lab</div>
                         </div>
                         <div class="project-content">
                             <h3>IIT Delhi - Electric Vehicle Research Lab</h3>
@@ -137,23 +1180,23 @@
                             <p class="project-description">Complete EV research facility with battery testing stations, motor control labs, and charging infrastructure for advanced vehicle technology research.</p>
                             <div class="project-details">
                                 <div class="detail-item">
-                                    <strong><i class="fas fa-users" aria-hidden="true"></i> Students:</strong> 100+ per semester
+                                    <strong>Students:</strong> 100+ per semester
                                 </div>
                                 <div class="detail-item">
-                                    <strong><i class="fas fa-clock" aria-hidden="true"></i> Duration:</strong> 8 weeks setup
+                                    <strong>Duration:</strong> 8 weeks setup
                                 </div>
                                 <div class="detail-item">
-                                    <strong><i class="fas fa-chart-line" aria-hidden="true"></i> Impact:</strong> 200+ research papers
+                                    <strong>Impact:</strong> 200+ research papers
                                 </div>
                             </div>
-                            <a href="ev-lab.html" class="btn btn-secondary">View Case Study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <button class="btn-secondary">View Case Study</button>
                         </div>
                     </article>
 
-                    <article class="project-card fade-in-up" style="--delay: 0.2s;">
+                    <article class="project-card">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="NIT AI Lab" loading="lazy">
-                            <span class="project-category">AI & Machine Learning Lab</span>
+                            <div class="project-category">AI & Machine Learning Lab</div>
                         </div>
                         <div class="project-content">
                             <h3>NIT Warangal - AI & Machine Learning Center</h3>
@@ -161,23 +1204,23 @@
                             <p class="project-description">State-of-the-art AI lab with GPU clusters, deep learning frameworks, and computer vision systems for cutting-edge research and student training.</p>
                             <div class="project-details">
                                 <div class="detail-item">
-                                    <strong><i class="fas fa-users" aria-hidden="true"></i> Students:</strong> 150+ per year
+                                    <strong>Students:</strong> 150+ per year
                                 </div>
                                 <div class="detail-item">
-                                    <strong><i class="fas fa-clock" aria-hidden="true"></i> Duration:</strong> 6 weeks setup
+                                    <strong>Duration:</strong> 6 weeks setup
                                 </div>
                                 <div class="detail-item">
-                                    <strong><i class="fas fa-chart-line" aria-hidden="true"></i> Impact:</strong> 15+ industry projects
+                                    <strong>Impact:</strong> 15+ industry projects
                                 </div>
                             </div>
-                            <a href="ai-lab.html" class="btn btn-secondary">View Case Study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <button class="btn-secondary">View Case Study</button>
                         </div>
                     </article>
 
-                    <article class="project-card fade-in-up" style="--delay: 0.3s;">
+                    <article class="project-card">
                         <div class="project-image">
                             <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="PSU IoT Lab" loading="lazy">
-                            <span class="project-category">Industrial IoT Lab</span>
+                            <div class="project-category">Industrial IoT Lab</div>
                         </div>
                         <div class="project-content">
                             <h3>PSU Kalinga - Industrial IoT Training Center</h3>
@@ -185,16 +1228,16 @@
                             <p class="project-description">Comprehensive IoT lab for skill development with sensor networks, cloud integration, and real-time data analytics for Industry 4.0 applications.</p>
                             <div class="project-details">
                                 <div class="detail-item">
-                                    <strong><i class="fas fa-users" aria-hidden="true"></i> Trainees:</strong> 300+ annually
+                                    <strong>Trainees:</strong> 300+ annually
                                 </div>
                                 <div class="detail-item">
-                                    <strong><i class="fas fa-clock" aria-hidden="true"></i> Duration:</strong> 7 weeks setup
+                                    <strong>Duration:</strong> 7 weeks setup
                                 </div>
                                 <div class="detail-item">
-                                    <strong><i class="fas fa-chart-line" aria-hidden="true"></i> Impact:</strong> 90% placement rate
+                                    <strong>Impact:</strong> 90% placement rate
                                 </div>
                             </div>
-                            <a href="iot-lab.html" class="btn btn-secondary">View Case Study <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <button class="btn-secondary">View Case Study</button>
                         </div>
                     </article>
                 </div>
@@ -203,83 +1246,71 @@
 
         <section class="project-gallery" aria-labelledby="gallery-title">
             <div class="container">
-                <div class="section-header fade-in-up">
-                    <h2 class="section-title" id="gallery-title">Project Gallery</h2>
-                    <p class="section-subtitle">Visual showcase of our laboratory implementations</p>
-                </div>
+                <h2 class="section-title" id="gallery-title">Project Gallery</h2>
+                <p class="section-subtitle">Visual showcase of our laboratory implementations</p>
                 
                 <div class="gallery-filters" role="group" aria-label="Filter projects by category">
-                    <button class="filter-btn active" data-filter="all" aria-pressed="true">All Projects</button>
-                    <button class="filter-btn" data-filter="ev" aria-pressed="false">Electric Vehicle</button>
-                    <button class="filter-btn" data-filter="ai" aria-pressed="false">AI & ML</button>
-                    <button class="filter-btn" data-filter="iot" aria-pressed="false">IoT</button>
-                    <button class="filter-btn" data-filter="other" aria-pressed="false">Other</button>
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ev">Electric Vehicle</button>
+                    <button class="filter-btn" data-filter="ai">AI & ML</button>
+                    <button class="filter-btn" data-filter="iot">IoT</button>
+                    <button class="filter-btn" data-filter="other">Other</button>
                 </div>
 
                 <div class="gallery-grid">
-                    <a href="#" class="gallery-item" data-category="ev" aria-label="View project: EV Battery Testing Station">
+                    <div class="gallery-item" data-category="ev">
                         <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="EV Lab Installation 1" loading="lazy">
                         <div class="gallery-overlay">
-                            <i class="fas fa-search-plus" aria-hidden="true"></i>
                             <h4>EV Battery Testing Station</h4>
                             <p>Government Engineering College</p>
                         </div>
-                    </a>
-                    <a href="#" class="gallery-item" data-category="ai" aria-label="View project: AI Computing Cluster">
+                    </div>
+                    <div class="gallery-item" data-category="ai">
                         <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="AI Lab Setup 1" loading="lazy">
                         <div class="gallery-overlay">
-                            <i class="fas fa-search-plus" aria-hidden="true"></i>
                             <h4>AI Computing Cluster</h4>
                             <p>Technical University</p>
                         </div>
-                    </a>
-                    <a href="#" class="gallery-item" data-category="iot" aria-label="View project: Smart Sensor Network">
+                    </div>
+                    <div class="gallery-item" data-category="iot">
                         <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="IoT Lab 1" loading="lazy">
                         <div class="gallery-overlay">
-                            <i class="fas fa-search-plus" aria-hidden="true"></i>
                             <h4>Smart Sensor Network</h4>
                             <p>Industrial Training Institute</p>
                         </div>
-                    </a>
-                    <a href="#" class="gallery-item" data-category="ev" aria-label="View project: Motor Control Lab">
+                    </div>
+                    <div class="gallery-item" data-category="ev">
                         <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="EV Lab Installation 2" loading="lazy">
                         <div class="gallery-overlay">
-                            <i class="fas fa-search-plus" aria-hidden="true"></i>
                             <h4>Motor Control Lab</h4>
                             <p>Polytechnic Institute</p>
                         </div>
-                    </a>
-                    <a href="#" class="gallery-item" data-category="ai" aria-label="View project: Computer Vision Lab">
+                    </div>
+                    <div class="gallery-item" data-category="ai">
                         <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="AI Lab Setup 2" loading="lazy">
                         <div class="gallery-overlay">
-                            <i class="fas fa-search-plus" aria-hidden="true"></i>
                             <h4>Computer Vision Lab</h4>
                             <p>Research Institute</p>
                         </div>
-                    </a>
-                    <a href="#" class="gallery-item" data-category="other" aria-label="View project: Robotics Laboratory">
+                    </div>
+                    <div class="gallery-item" data-category="other">
                         <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Robotics Lab" loading="lazy">
                         <div class="gallery-overlay">
-                            <i class="fas fa-search-plus" aria-hidden="true"></i>
                             <h4>Robotics Laboratory</h4>
                             <p>Engineering College</p>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="testimonials" aria-labelledby="testimonials-title">
             <div class="container">
-                <div class="section-header fade-in-up">
-                     <h2 class="section-title" id="testimonials-title">What Our Clients Say</h2>
-                     <p class="section-subtitle">Real feedback from our institution partners</p>
-                </div>
+                <h2 class="section-title" id="testimonials-title">What Our Clients Say</h2>
                 <div class="testimonials-grid">
-                    <article class="testimonial-card fade-in-up" style="--delay: 0.1s;">
-                        <i class="fas fa-quote-right testimonial-quote-icon" aria-hidden="true"></i>
+                    <article class="testimonial-card">
                         <div class="testimonial-content">
-                            <div class="rating" aria-label="5 out of 5 stars">
+                            <div class="rating" aria-label="5 star rating">
                                 <i class="fas fa-star" aria-hidden="true"></i>
                                 <i class="fas fa-star" aria-hidden="true"></i>
                                 <i class="fas fa-star" aria-hidden="true"></i>
@@ -296,10 +1327,9 @@
                         </div>
                     </article>
 
-                    <article class="testimonial-card fade-in-up" style="--delay: 0.2s;">
-                        <i class="fas fa-quote-right testimonial-quote-icon" aria-hidden="true"></i>
+                    <article class="testimonial-card">
                         <div class="testimonial-content">
-                            <div class="rating" aria-label="5 out of 5 stars">
+                            <div class="rating" aria-label="5 star rating">
                                 <i class="fas fa-star" aria-hidden="true"></i>
                                 <i class="fas fa-star" aria-hidden="true"></i>
                                 <i class="fas fa-star" aria-hidden="true"></i>
@@ -316,10 +1346,9 @@
                         </div>
                     </article>
 
-                    <article class="testimonial-card fade-in-up" style="--delay: 0.3s;">
-                        <i class="fas fa-quote-right testimonial-quote-icon" aria-hidden="true"></i>
+                    <article class="testimonial-card">
                         <div class="testimonial-content">
-                            <div class="rating" aria-label="5 out of 5 stars">
+                            <div class="rating" aria-label="5 star rating">
                                 <i class="fas fa-star" aria-hidden="true"></i>
                                 <i class="fas fa-star" aria-hidden="true"></i>
                                 <i class="fas fa-star" aria-hidden="true"></i>
@@ -341,62 +1370,59 @@
 
         <section class="process-timeline" aria-labelledby="process-title">
             <div class="container">
-                <div class="section-header fade-in-up">
-                    <h2 class="section-title" id="process-title">Our Implementation Process</h2>
-                    <p class="section-subtitle">A clear path from consultation to handover</p>
-                </div>
+                <h2 class="section-title" id="process-title">Our Implementation Process</h2>
                 <div class="timeline">
-                    <div class="timeline-item fade-in-up">
+                    <div class="timeline-item">
                         <div class="timeline-marker">
                             <i class="fas fa-handshake" aria-hidden="true"></i>
                         </div>
                         <div class="timeline-content">
-                            <h3>1. Initial Consultation</h3>
+                            <h3>Initial Consultation</h3>
                             <p>We begin with detailed discussions to understand your requirements, space constraints, and budget considerations.</p>
                         </div>
                     </div>
-                    <div class="timeline-item fade-in-up">
+                    <div class="timeline-item">
                         <div class="timeline-marker">
                             <i class="fas fa-clipboard-list" aria-hidden="true"></i>
                         </div>
                         <div class="timeline-content">
-                            <h3>2. Site Assessment</h3>
+                            <h3>Site Assessment</h3>
                             <p>Our experts conduct a comprehensive assessment of your facility and prepare detailed specifications.</p>
                         </div>
                     </div>
-                    <div class="timeline-item fade-in-up">
+                    <div class="timeline-item">
                         <div class="timeline-marker">
                             <i class="fas fa-drafting-compass" aria-hidden="true"></i>
                         </div>
                         <div class="timeline-content">
-                            <h3>3. Design & Planning</h3>
+                            <h3>Design & Planning</h3>
                             <p>Custom lab design with 3D visualization, equipment placement, and workflow optimization.</p>
                         </div>
                     </div>
-                    <div class="timeline-item fade-in-up">
+                    <div class="timeline-item">
                         <div class="timeline-marker">
                             <i class="fas fa-truck" aria-hidden="true"></i>
                         </div>
                         <div class="timeline-content">
-                            <h3>4. Procurement & Delivery</h3>
+                            <h3>Procurement & Delivery</h3>
                             <p>Government-approved equipment sourcing, quality assurance, and secure delivery to your location.</p>
                         </div>
                     </div>
-                    <div class="timeline-item fade-in-up">
+                    <div class="timeline-item">
                         <div class="timeline-marker">
                             <i class="fas fa-tools" aria-hidden="true"></i>
                         </div>
                         <div class="timeline-content">
-                            <h3>5. Installation & Testing</h3>
+                            <h3>Installation & Testing</h3>
                             <p>Professional installation, system integration, and comprehensive testing of all components.</p>
                         </div>
                     </div>
-                    <div class="timeline-item fade-in-up">
+                    <div class="timeline-item">
                         <div class="timeline-marker">
                             <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
                         </div>
                         <div class="timeline-content">
-                            <h3>6. Training & Handover</h3>
+                            <h3>Training & Handover</h3>
                             <p>Faculty training, student orientation, and complete documentation handover.</p>
                         </div>
                     </div>
@@ -406,12 +1432,12 @@
 
         <section class="cta-section" aria-labelledby="cta-title">
             <div class="container">
-                <div class="cta-content fade-in-up">
+                <div class="cta-content">
                     <h2 id="cta-title">Ready to Start Your Lab Project?</h2>
                     <p>Join 200+ institutions who have transformed their technology education with eSkillLab.</p>
                     <div class="cta-buttons">
-                        <a href="contact.html" class="btn btn-primary">Start Your Project</a>
-                        <a href="contact.html" class="btn btn-secondary-light">Request Site Visit</a>
+                        <a href="contact.html" class="btn-primary">Start Your Project</a>
+                        <a href="contact.html" class="btn-secondary">Request Site Visit</a>
                     </div>
                 </div>
             </div>
@@ -423,8 +1449,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <img src="logo.svg" alt="eSkillLab Logo" class="footer-logo" width="140" height="36" loading="lazy">
-                    <p>Empowering innovation through practical technology training and state-of-the-art lab implementations.</p>
+                    <img src="logo.svg" alt="eSkillLab Logo" width="150" height="40" loading="lazy">
+                    <p>Empowering innovation through practical technology training.</p>
                 </div>
                 
                 <nav class="footer-nav" aria-labelledby="quick-links-title">
@@ -451,7 +1477,6 @@
                 
                 <div class="footer-social">
                     <h4 id="social-title">Follow Us</h4>
-                    <p>Stay updated on our latest projects and news.</p>
                     <ul class="social-links" aria-labelledby="social-title">
                         <li><a href="#" aria-label="Visit our Facebook page"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="#" aria-label="Visit our Twitter profile"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -462,18 +1487,271 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2025</span> eSkillLab. All rights reserved.</p>
-                <ul class="footer-bottom-links">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
+                <p>&copy; 2025 eSkillLab. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <a href="#header" class="back-to-top" aria-label="Back to top" title="Back to top">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
-    </a>
+    <script>
+        // ===================================
+        // NAVIGATION FUNCTIONALITY
+        // ===================================
+        const header = document.getElementById('header');
+        const hamburger = document.getElementById('hamburger-button');
+        const navMenu = document.getElementById('nav-menu');
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        hamburger.addEventListener('click', () => {
+            const isActive = hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isActive);
+            document.body.style.overflow = isActive ? 'hidden' : '';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // ===================================
+        // COUNTER ANIMATION FOR STATS
+        // ===================================
+        const animateCounter = (element) => {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    if (target >= 1000) {
+                        element.textContent = (target / 1000).toFixed(0) + ',000';
+                    } else {
+                        element.textContent = target;
+                    }
+                    clearInterval(timer);
+                } else {
+                    const display = Math.floor(current);
+                    if (display >= 1000) {
+                        element.textContent = Math.floor(display / 1000) + ',' + (display % 1000).toString().padStart(3, '0');
+                    } else {
+                        element.textContent = display;
+                    }
+                }
+            }, 16);
+        };
+
+        // Observe stats for counter animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target.querySelector('.stat-number[data-target]');
+                    if (statNumber && !statNumber.classList.contains('animated')) {
+                        statNumber.classList.add('animated');
+                        animateCounter(statNumber);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-card').forEach(stat => {
+            statsObserver.observe(stat);
+        });
+
+        // ===================================
+        // GALLERY FILTER FUNCTIONALITY
+        // ===================================
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                button.setAttribute('aria-pressed', 'true');
+
+                const filter = button.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeIn 0.5s ease-in';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Set initial aria-pressed states
+        filterButtons.forEach(btn => {
+            btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
+        });
+
+        // ===================================
+        // SMOOTH SCROLL FOR ANCHOR LINKS
+        // ===================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ===================================
+        // INTERSECTION OBSERVER FOR ANIMATIONS
+        // ===================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===================================
+        // ACCESSIBILITY ENHANCEMENTS
+        // ===================================
+        // Trap focus in mobile menu when open
+        const focusableElements = navMenu.querySelectorAll('a, button');
+        const firstFocusable = focusableElements[0];
+        const lastFocusable = focusableElements[focusableElements.length - 1];
+
+        navMenu.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab' && navMenu.classList.contains('active')) {
+                if (e.shiftKey && document.activeElement === firstFocusable) {
+                    e.preventDefault();
+                    lastFocusable.focus();
+                } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+                    e.preventDefault();
+                    firstFocusable.focus();
+                }
+            }
+            
+            // Close menu on Escape key
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                hamburger.focus();
+            }
+        });
+
+        // Gallery keyboard navigation
+        galleryItems.forEach(item => {
+            item.setAttribute('tabindex', '0');
+            item.setAttribute('role', 'button');
+            
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    item.click();
+                }
+            });
+        });
+
+        // Filter buttons keyboard support
+        filterButtons.forEach(button => {
+            button.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const nextButton = button.nextElementSibling || filterButtons[0];
+                    nextButton.focus();
+                    nextButton.click();
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const prevButton = button.previousElementSibling || filterButtons[filterButtons.length - 1];
+                    prevButton.focus();
+                    prevButton.click();
+                }
+            });
+        });
+
+        // ===================================
+        // PERFORMANCE OPTIMIZATION
+        // ===================================
+        // Debounce scroll events
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                window.cancelAnimationFrame(scrollTimeout);
+            }
+            scrollTimeout = window.requestAnimationFrame(() => {
+                // Scroll-related operations here
+            });
+        }, { passive: true });
+
+        // ===================================
+        // LAZY LOADING IMAGES
+        // ===================================
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.src;
+            });
+        } else {
+            // Fallback for browsers that don't support lazy loading
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
+        }
+
+        // ===================================
+        // LOADING COMPLETE
+        // ===================================
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
 
 </body>
 </html>
