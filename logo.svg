@@ -1,0 +1,47 @@
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main logo icon - Modern tech-inspired design -->
+  <g transform="translate(5, 10)">
+    <!-- Background circle -->
+    <circle cx="20" cy="15" r="18" fill="url(#gradient1)" opacity="0.1"/>
+    
+    <!-- Main icon - stylized "e" with tech elements -->
+    <g transform="translate(12, 7)">
+      <!-- Main "e" shape -->
+      <path d="M6 12C6 7.6 9.6 4 14 4c2.2 0 4.2 0.9 5.6 2.3C20.4 5.1 21 4 22.6 4c2.8 0 5 2.2 5 5s-2.2 5-5 5c-1.6 0-2.2-1.1-1.4-2.3C19.8 10.1 17.8 9 16 9c-4.4 0-8 3.6-8 8s3.6 8 8 8c4.4 0 8-3.6 8-8" 
+            fill="#0052CC" stroke="#0052CC" stroke-width="2" stroke-linecap="round"/>
+      
+      <!-- Tech accent lines -->
+      <line x1="2" y1="8" x2="2" y2="22" stroke="#23D160" stroke-width="2" stroke-linecap="round"/>
+      <line x1="26" y1="8" x2="26" y2="22" stroke="#23D160" stroke-width="2" stroke-linecap="round"/>
+      
+      <!-- Connection nodes -->
+      <circle cx="2" cy="8" r="2" fill="#23D160"/>
+      <circle cx="2" cy="22" r="2" fill="#23D160"/>
+      <circle cx="26" cy="8" r="2" fill="#23D160"/>
+      <circle cx="26" cy="22" r="2" fill="#23D160"/>
+      
+      <!-- Central innovation dot -->
+      <circle cx="14" cy="15" r="3" fill="#23D160" opacity="0.8"/>
+    </g>
+  </g>
+  
+  <!-- Text "eSkillLab" -->
+  <g transform="translate(60, 15)">
+    <text x="0" y="0" font-family="Poppins, sans-serif" font-size="24" font-weight="800" fill="#111">
+      <tspan fill="#0052CC">e</tspan><tspan>Skill</tspan><tspan fill="#0052CC">Lab</tspan>
+    </text>
+    
+    <!-- Tagline -->
+    <text x="0" y="25" font-family="Poppins, sans-serif" font-size="8" font-weight="400" fill="#666">
+      Future Technologies
+    </text>
+  </g>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0052CC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#23D160;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
