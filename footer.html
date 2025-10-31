@@ -1,0 +1,71 @@
+<!-- 
+  COMMENT: This is your single source of truth for the footer.
+  Edit this file, and every page on your site will update.
+  Note: This file should ONLY contain the footer code, no <html> or <body> tags.
+-->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-about">
+                <img src="logo.svg" alt="eSkillLab Logo" class="footer-logo" width="150" height="40" loading="lazy">
+                <p>Empowering innovation through practical technology training and state-of-the-art lab implementations.</p>
+            </div>
+            
+            <nav class="footer-nav" aria-labelledby="quick-links-title">
+                <h4 id="quick-links-title">Quick Links</h4>
+                <ul>
+                    <!-- 
+                      COMMENT: We remove all 'aria-current="page"' from this template.
+                      The script.js file will add it back to the correct link on each page.
+                    -->
+                    <li><a href="index.html">Home</a></li> 
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="labs.html">Labs</a></li>
+                    <li><a href="work.html">Work</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <nav class="footer-nav" aria-labelledby="our-labs-title">
+                <h4 id="our-labs-title">Our Labs</h4>
+                <ul>
+                    <li><a href="ev-lab.html">Electric Vehicle Lab</a></li>
+                    <li><a href="ai-lab.html">AI & Machine Learning</a></li>
+                    <li><a href="iot-lab.html">Industrial IoT Lab</a></li>
+                    <li><a href="BI-lab.html">Business Intelligence Lab</a></li> 
+                    <li><a href="labs.html">View All Labs</a></li>
+                </ul>
+            </nav>
+            
+            <div class="footer-subscribe">
+                <h4 id="newsletter-title">Join Our Newsletter</h4>
+                <p>Get the latest on new labs and tech innovations.</p>
+                <form class="newsletter-form" aria-labelledby="newsletter-title">
+                    <label for="footer-email" class="sr-only">Email address</label>
+                    <input type="email" id="footer-email" class="newsletter-input" placeholder="Enter your email" required>
+                    <button type="submit" class="newsletter-button" aria-label="Subscribe to newsletter">
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <p>&copy; <span id="current-year">2025</span> eSkillLab. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom-right">
+                <ul class="social-links" aria-label="Social media">
+                    <li><a href="#" aria-label="Visit our Facebook page"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="Visit our Twitter profile"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="Visit our LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a href="#" aria-label="Visit our Instagram profile"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
