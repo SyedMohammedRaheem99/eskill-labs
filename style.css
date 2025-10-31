@@ -276,18 +276,14 @@ section {
     flex-shrink: 0;
 }
 
-/* This version forces the dimensions */
+/* COMMENT: This is the FIXED logo code.
+  - The syntax error from your file is now corrected.
+*/
 .nav-logo img {
     height: 40px !important;  /* Add !important */
     width: 150px !important;  /* Add !important */
     transition: filter var(--transition-fast);
-    filter: brightness(0) invert(1) grayscale(100) brightness(200%);
-}
-    
-    /* COMMENT: Make logo WHITE by default using filter
-      - This assumes the original logo.svg is dark/purple
-      - This string of filters makes it black, inverts it to white, and brightens it.
-    */
+    /* COMMENT: Make logo WHITE by default using filter... */
     filter: brightness(0) invert(1) grayscale(100) brightness(200%);
 }
 
@@ -295,7 +291,7 @@ section {
 .header.scrolled .nav-logo img {
     filter: none;
 }
-/* COMMENT: End of Logo Fix (v3)
+/* COMMENT: End of Logo Fix
 */
 
 
@@ -905,9 +901,10 @@ section {
 }
 
 /* ---------------------------------
-14. Footer
+14. Footer (Premium v4)
 ---------------------------------
 */
+/* COMMENT: This is the new, upgraded footer style block */
 .footer {
     background-color: var(--color-bg-dark);
     color: var(--color-text-light-gray);
@@ -916,14 +913,14 @@ section {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr; /* Adjusted grid for newsletter */
     gap: var(--spacing-2xl);
     padding-bottom: var(--spacing-2xl);
 }
 
 .footer-about .footer-logo {
-    height: 36px;
-    width: auto;
+    height: 40px; /* Using correct size */
+    width: 150px; /* Using correct size */
     margin-bottom: var(--spacing-md);
     /* COMMENT: This filter makes the SVG logo white. This is fine for the footer. */
     filter: brightness(0) invert(1) grayscale(100) brightness(5);
@@ -932,10 +929,11 @@ section {
     font-size: var(--font-size-sm);
     line-height: 1.6;
     max-width: 350px;
+    margin-bottom: 0;
 }
 
 .footer-nav h4,
-.footer-social h4 {
+.footer-subscribe h4 {
     color: var(--color-white);
     font-size: var(--font-size-base);
     font-weight: 600;
@@ -956,14 +954,94 @@ section {
     color: var(--color-white);
     text-decoration: underline;
 }
+/* COMMENT: Style for the active page link in footer */
 .footer-nav ul li a[aria-current="page"] {
     color: var(--color-white);
-    font-weight: 600;
+    font-weight: 700;
 }
 
-.footer-social p {
+.footer-subscribe p {
     font-size: var(--font-size-sm);
     margin-bottom: var(--spacing-md);
+}
+
+/* COMMENT: Newsletter form styles */
+.newsletter-form {
+    display: flex;
+    position: relative;
+    max-width: 300px;
+}
+.newsletter-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    padding-right: 40px; /* Space for button */
+    font-size: var(--font-size-sm);
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--color-white);
+}
+.newsletter-input::placeholder {
+    color: var(--color-text-light);
+}
+.newsletter-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary-dark);
+}
+.newsletter-button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-sm);
+}
+.newsletter-button:hover {
+    color: var(--color-primary);
+}
+
+
+/* COMMENT: New footer-bottom layout */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: var(--font-size-sm);
+}
+.footer-bottom-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+}
+.footer-bottom-left p {
+    margin-bottom: 0;
+}
+.footer-bottom-links {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+.footer-bottom-links a {
+    color: var(--color-text-light-gray);
+}
+.footer-bottom-links a:hover {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
+/* COMMENT: Social links now in footer-bottom */
+.footer-bottom-right {
+    flex-shrink: 0;
 }
 .social-links {
     display: flex;
@@ -978,28 +1056,8 @@ section {
     color: var(--color-primary);
     transform: scale(1.1);
 }
+/* END OF NEW FOOTER SECTION */
 
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-    padding: var(--spacing-lg) 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: var(--font-size-sm);
-}
-.footer-bottom-links {
-    display: flex;
-    gap: var(--spacing-lg);
-}
-.footer-bottom-links a {
-    color: var(--color-text-light-gray);
-}
-.footer-bottom-links a:hover {
-    color: var(--color-white);
-    text-decoration: underline;
-}
 
 /* ---------------------------------
 15. Back to Top Button
@@ -1087,10 +1145,14 @@ Tablet (max-width: 1024px)
         margin: 0 auto;
     }
 
+    /* COMMENT: Responsive footer grid */
     .footer-content {
         grid-template-columns: 1fr 1fr; /* 2x2 grid */
     }
     .footer-about {
+        grid-column: 1 / 3; /* Span full width */
+    }
+    .footer-subscribe {
         grid-column: 1 / 3; /* Span full width */
     }
 }
@@ -1195,18 +1257,30 @@ Mobile (max-width: 768px)
         padding-left: var(--spacing-3xl); /* 4rem */
     }
     
+    /* COMMENT: NEW Responsive footer styles */
     .footer-content {
         grid-template-columns: 1fr; /* Stack all footer columns */
     }
     .footer-about {
         grid-column: auto;
     }
+    .footer-subscribe {
+        grid-column: auto;
+    }
     
+    /* COMMENT: Stack footer-bottom items */
     .footer-bottom {
         flex-direction: column;
-        gap: var(--spacing-sm);
+        gap: var(--spacing-lg);
+    }
+    .footer-bottom-left {
+        flex-direction: column;
+        gap: var(--spacing-md);
     }
     .footer-bottom-links {
-        order: -1; /* Move links above copyright on small screens */
+        order: 1; /* Move links below copyright */
+    }
+    .footer-bottom-right {
+        order: -1; /* Move social links to the top */
     }
 }
