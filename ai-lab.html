@@ -5,62 +5,1241 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AI & Machine Learning Lab by eSkillLab - Advanced AI training with deep learning, computer vision, neural networks, and NLP for cutting-edge research and education.">
     <meta name="keywords" content="AI lab, machine learning lab, deep learning, computer vision, neural networks, NLP, artificial intelligence training, data science">
+    <meta name="theme-color" content="#6366f1">
     <title>AI & Machine Learning Lab - eSkillLab</title>
     
-    <!-- Google Fonts - Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- External CSS -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ============================================
+           MODERN RESET & BASE STYLES
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --success: #10b981;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --gray-light: #cbd5e1;
+            --white: #ffffff;
+            --background: #f8fafc;
+            
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --spacing-3xl: 6rem;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+            
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--background);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        /* ============================================
+           NAVIGATION
+        ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all var(--transition-base);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-logo a {
+            display: flex;
+            align-items: center;
+            transition: transform var(--transition-base);
+        }
+
+        .nav-logo a:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-xs);
+            align-items: center;
+        }
+
+        .nav-link {
+            display: block;
+            padding: var(--spacing-xs) var(--spacing-md);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            border-radius: var(--radius-lg);
+            position: relative;
+            transition: all var(--transition-base);
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width var(--transition-base);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .nav-link:hover::before {
+            width: 60%;
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .nav-link.active::before {
+            width: 60%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--spacing-xs);
+            z-index: 1001;
+        }
+
+        .hamburger .bar {
+            width: 28px;
+            height: 3px;
+            background: var(--dark);
+            border-radius: var(--radius-full);
+            transition: all var(--transition-base);
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* ============================================
+           LAB HERO SECTION
+        ============================================ */
+        .lab-hero {
+            padding: 140px 0 var(--spacing-3xl);
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: particleMove 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes particleMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .lab-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .lab-breadcrumb {
+            margin-bottom: var(--spacing-lg);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .lab-breadcrumb ol {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .lab-breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .lab-breadcrumb li:not(:last-child)::after {
+            content: '/';
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lab-breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-md);
+        }
+
+        .lab-breadcrumb a:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lab-breadcrumb span {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lab-hero-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+            align-items: center;
+        }
+
+        .lab-hero-text {
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .lab-icon-large {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--radius-2xl);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .lab-icon-large i {
+            font-size: 3rem;
+            color: var(--white);
+        }
+
+        .lab-hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
+        }
+
+        .lab-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.7;
+        }
+
+        .lab-badges {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-full);
+            color: var(--white);
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .lab-hero-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            border: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .lab-hero-image {
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .lab-hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-2xl);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            transition: transform var(--transition-slow);
+        }
+
+        .lab-hero-image:hover img {
+            transform: scale(1.02) translateY(-5px);
+        }
+
+        /* ============================================
+           LAB OVERVIEW
+        ============================================ */
+        .lab-overview {
+            padding: var(--spacing-3xl) 0;
+            background: var(--white);
+        }
+
+        .overview-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: var(--spacing-3xl);
+            align-items: start;
+        }
+
+        .overview-text h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-lg);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .overview-text p {
+            font-size: 1.0625rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .key-features {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-xl);
+            background: var(--background);
+            border-radius: var(--radius-xl);
+            border-left: 4px solid var(--primary);
+        }
+
+        .key-features h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary);
+        }
+
+        .key-features ul {
+            list-style: none;
+        }
+
+        .key-features li {
+            display: flex;
+            align-items: start;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .key-features li i {
+            color: var(--success);
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
+            transition: all var(--transition-base);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            transition: all var(--transition-base);
+        }
+
+        .stat-card:hover .stat-icon {
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        .stat-icon i {
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-card p {
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           SECTION TITLES
+        ============================================ */
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.125rem;
+            color: var(--gray);
+            margin-bottom: var(--spacing-2xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================
+           LAB MODULES
+        ============================================ */
+        .lab-modules {
+            padding: var(--spacing-3xl) 0;
+            background: var(--background);
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .module-card {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            border: 2px solid transparent;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-2xl);
+            border-color: var(--primary);
+        }
+
+        .module-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-xl);
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-lg);
+            transition: all var(--transition-base);
+        }
+
+        .module-card:hover .module-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .module-icon i {
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .module-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--dark);
+        }
+
+        .module-card ul {
+            list-style: none;
+        }
+
+        .module-card li {
+            padding: var(--spacing-xs) 0;
+            color: var(--gray);
+            position: relative;
+            padding-left: var(--spacing-md);
+        }
+
+        .module-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ============================================
+           EQUIPMENT LIST
+        ============================================ */
+        .equipment-list {
+            padding: var(--spacing-3xl) 0;
+            background: var(--white);
+        }
+
+        .equipment-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .equipment-category {
+            background: var(--background);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            border: 2px solid transparent;
+            transition: all var(--transition-base);
+        }
+
+        .equipment-category:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .equipment-category h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            color: var(--dark);
+        }
+
+        .equipment-items {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .equipment-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm);
+            background: var(--white);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-base);
+        }
+
+        .equipment-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .equipment-item i {
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .equipment-item span {
+            color: var(--gray);
+            font-size: 0.9375rem;
+        }
+
+        /* ============================================
+           SPECIFICATIONS
+        ============================================ */
+        .lab-specifications {
+            padding: var(--spacing-3xl) 0;
+            background: var(--background);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .specs-item {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            border: 2px solid transparent;
+        }
+
+        .specs-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .specs-item h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary);
+        }
+
+        .specs-item ul {
+            list-style: none;
+        }
+
+        .specs-item li {
+            padding: var(--spacing-xs) 0;
+            color: var(--gray);
+            font-size: 0.9375rem;
+            position: relative;
+            padding-left: var(--spacing-md);
+        }
+
+        .specs-item li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ============================================
+           PROJECTS SHOWCASE
+        ============================================ */
+        .lab-projects {
+            padding: var(--spacing-3xl) 0;
+            background: var(--white);
+        }
+
+        .projects-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .project-category {
+            background: var(--background);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            border: 2px solid transparent;
+            transition: all var(--transition-base);
+        }
+
+        .project-category:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-category h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            color: var(--dark);
+        }
+
+        .project-items {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .project-item {
+            padding: var(--spacing-md);
+            background: var(--white);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-base);
+            border-left: 3px solid transparent;
+        }
+
+        .project-item:hover {
+            border-left-color: var(--primary);
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .project-item h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--dark);
+        }
+
+        .project-item p {
+            color: var(--gray);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           CAREER OPPORTUNITIES
+        ============================================ */
+        .career-opportunities {
+            padding: var(--spacing-3xl) 0;
+            background: var(--background);
+        }
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .career-item {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        .career-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-2xl);
+            border-color: var(--primary);
+        }
+
+        .career-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            transition: all var(--transition-base);
+        }
+
+        .career-item:hover .career-icon {
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        .career-icon i {
+            font-size: 1.75rem;
+            color: var(--white);
+        }
+
+        .career-item h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            color: var(--dark);
+        }
+
+        .career-item p {
+            color: var(--gray);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .salary-range {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--gradient-primary);
+            color: var(--white);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        /* ============================================
+           CTA SECTION
+        ============================================ */
+        .cta-section {
+            padding: var(--spacing-3xl) 0;
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 10s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-content p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        .footer {
+            background: var(--gradient-dark);
+            color: var(--white);
+            padding: var(--spacing-3xl) 0 var(--spacing-lg);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .footer-about img {
+            margin-bottom: var(--spacing-md);
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-about p {
+            color: var(--gray-light);
+            line-height: 1.7;
+        }
+
+        .footer-nav h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--white);
+        }
+
+        .footer-nav ul {
+            list-style: none;
+        }
+
+        .footer-nav ul li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-nav ul li a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            display: inline-block;
+        }
+
+        .footer-nav ul li a:hover {
+            color: var(--primary-light);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            list-style: none;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all var(--transition-base);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--spacing-lg);
+            text-align: center;
+            color: var(--gray-light);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 1024px) {
+            .lab-hero-main {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-content {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                width: 100%;
+                padding: var(--spacing-lg);
+                box-shadow: var(--shadow-xl);
+                transition: left var(--transition-base);
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+
+            .nav-link {
+                display: block;
+                padding: var(--spacing-md);
+                border-radius: var(--radius-md);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .lab-hero {
+                padding: 120px 0 var(--spacing-2xl);
+            }
+
+            .overview-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .equipment-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .career-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .lab-hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* ============================================
+           ACCESSIBILITY & FOCUS STATES
+        ============================================ */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 3px;
+        }
+
+        /* ============================================
+           LOADING ANIMATION
+        ============================================ */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body {
+            animation: fadeIn 0.3s ease-in;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html"><img src="logo.svg" alt="eSkillLab Logo"></a>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="labs.html" class="nav-link">Labs</a>
-                </li>
-                <li class="nav-item">
-                    <a href="work.html" class="nav-link">Work</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="lab-hero">
-        <div class="container">
-            <div class="lab-hero-content">
-                <div class="lab-breadcrumb">
-                    <a href="index.html">Home</a> / <a href="labs.html">Labs</a> / <span>AI & Machine Learning Lab</span>
+    <header class="header" id="header">
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="logo.svg" alt="eSkillLab Homepage" width="150" height="40">
+                    </a>
                 </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="labs.html" class="nav-link">Labs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="work.html" class="nav-link">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                
+                <button class="hamburger" id="hamburger-button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Lab Hero Section -->
+        <section class="lab-hero">
+            <div class="container">
+                <nav class="lab-breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="labs.html">Labs</a></li>
+                        <li><span aria-current="page">AI & Machine Learning Lab</span></li>
+                    </ol>
+                </nav>
+                
                 <div class="lab-hero-main">
                     <div class="lab-hero-text">
                         <div class="lab-icon-large">
-                            <i class="fas fa-brain"></i>
+                            <i class="fas fa-brain" aria-hidden="true"></i>
                         </div>
                         <h1>AI & Machine Learning Lab</h1>
                         <p class="lab-subtitle">Advanced artificial intelligence and machine learning research and training facility for the next generation of AI engineers</p>
@@ -70,8 +1249,8 @@
                             <span class="badge">GPU Accelerated</span>
                         </div>
                         <div class="lab-hero-actions">
-                            <a href="contact.html"><button class="btn-primary">Get Lab Quote</button></a>
-                            <button class="btn-secondary">Download Brochure</button>
+                            <a href="contact.html" class="btn btn-primary">Get Lab Quote</a>
+                            <button class="btn btn-secondary">Download Brochure</button>
                         </div>
                     </div>
                     <div class="lab-hero-image">
@@ -79,460 +1258,461 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Lab Overview -->
-    <section class="lab-overview">
-        <div class="container">
-            <div class="overview-content">
-                <div class="overview-text">
-                    <h2>Lab Overview</h2>
-                    <p class="lead">Our AI & Machine Learning Lab is a state-of-the-art facility designed to provide comprehensive training in artificial intelligence, machine learning, and data science. The lab features high-performance computing systems and cutting-edge AI frameworks.</p>
-                    
-                    <p>This laboratory prepares students and researchers for careers in the rapidly evolving AI industry. With hands-on experience in deep learning, computer vision, natural language processing, and reinforcement learning, graduates are ready to tackle real-world AI challenges.</p>
+        <!-- Lab Overview -->
+        <section class="lab-overview" aria-labelledby="overview-title">
+            <div class="container">
+                <div class="overview-content">
+                    <div class="overview-text">
+                        <h2 id="overview-title">Lab Overview</h2>
+                        <p class="lead">Our AI & Machine Learning Lab is a state-of-the-art facility designed to provide comprehensive training in artificial intelligence, machine learning, and data science. The lab features high-performance computing systems and cutting-edge AI frameworks.</p>
+                        
+                        <p>This laboratory prepares students and researchers for careers in the rapidly evolving AI industry. With hands-on experience in deep learning, computer vision, natural language processing, and reinforcement learning, graduates are ready to tackle real-world AI challenges.</p>
 
-                    <div class="key-features">
-                        <h3>Key Features</h3>
+                        <div class="key-features">
+                            <h3>Key Features</h3>
+                            <ul>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> High-performance GPU clusters for deep learning</li>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Industry-standard AI frameworks and libraries</li>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Real-world datasets and challenge problems</li>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Cloud-based AI development environments</li>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Integration with popular AI platforms</li>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Industry mentorship and collaboration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="overview-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users" aria-hidden="true"></i>
+                            </div>
+                            <h3>25-30</h3>
+                            <p>Student Capacity</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock" aria-hidden="true"></i>
+                            </div>
+                            <h3>3-4</h3>
+                            <p>Weeks Setup</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-microchip" aria-hidden="true"></i>
+                            </div>
+                            <h3>4x</h3>
+                            <p>GPU Systems</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-brain" aria-hidden="true"></i>
+                            </div>
+                            <h3>15+</h3>
+                            <p>AI Frameworks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lab Modules -->
+        <section class="lab-modules" aria-labelledby="modules-title">
+            <div class="container">
+                <h2 class="section-title" id="modules-title">Learning Modules</h2>
+                <p class="section-subtitle">Comprehensive curriculum covering all aspects of artificial intelligence and machine learning</p>
+                
+                <div class="modules-grid">
+                    <article class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-brain" aria-hidden="true"></i>
+                        </div>
+                        <h3>Deep Learning</h3>
                         <ul>
-                            <li><i class="fas fa-check"></i> High-performance GPU clusters for deep learning</li>
-                            <li><i class="fas fa-check"></i> Industry-standard AI frameworks and libraries</li>
-                            <li><i class="fas fa-check"></i> Real-world datasets and challenge problems</li>
-                            <li><i class="fas fa-check"></i> Cloud-based AI development environments</li>
-                            <li><i class="fas fa-check"></i> Integration with popular AI platforms</li>
-                            <li><i class="fas fa-check"></i> Industry mentorship and collaboration</li>
+                            <li>Neural network fundamentals</li>
+                            <li>Convolutional Neural Networks (CNNs)</li>
+                            <li>Recurrent Neural Networks (RNNs/LSTMs)</li>
+                            <li>Transformer architectures</li>
+                            <li>Generative Adversarial Networks (GANs)</li>
+                            <li>Transfer learning techniques</li>
+                        </ul>
+                    </article>
+
+                    <article class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </div>
+                        <h3>Computer Vision</h3>
+                        <ul>
+                            <li>Image processing fundamentals</li>
+                            <li>Object detection and recognition</li>
+                            <li>Semantic segmentation</li>
+                            <li>Face recognition systems</li>
+                            <li>Medical image analysis</li>
+                            <li>Video analytics and tracking</li>
+                        </ul>
+                    </article>
+
+                    <article class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-comments" aria-hidden="true"></i>
+                        </div>
+                        <h3>Natural Language Processing</h3>
+                        <ul>
+                            <li>Text preprocessing and tokenization</li>
+                            <li>Sentiment analysis and classification</li>
+                            <li>Named entity recognition</li>
+                            <li>Language translation systems</li>
+                            <li>Chatbot development</li>
+                            <li>Large language models (LLMs)</li>
+                        </ul>
+                    </article>
+
+                    <article class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        </div>
+                        <h3>Machine Learning Algorithms</h3>
+                        <ul>
+                            <li>Supervised learning methods</li>
+                            <li>Unsupervised learning techniques</li>
+                            <li>Ensemble methods (Random Forest, XGBoost)</li>
+                            <li>Support Vector Machines</li>
+                            <li>Clustering algorithms</li>
+                            <li>Reinforcement learning</li>
+                        </ul>
+                    </article>
+
+                    <article class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-database" aria-hidden="true"></i>
+                        </div>
+                        <h3>Data Science & Analytics</h3>
+                        <ul>
+                            <li>Data collection and preprocessing</li>
+                            <li>Exploratory data analysis</li>
+                            <li>Feature engineering</li>
+                            <li>Statistical modeling</li>
+                            <li>Data visualization techniques</li>
+                            <li>Big data processing</li>
+                        </ul>
+                    </article>
+
+                    <article class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-cloud" aria-hidden="true"></i>
+                        </div>
+                        <h3>AI Deployment & MLOps</h3>
+                        <ul>
+                            <li>Model deployment strategies</li>
+                            <li>Containerization (Docker/Kubernetes)</li>
+                            <li>Model monitoring and maintenance</li>
+                            <li>A/B testing for AI models</li>
+                            <li>Edge AI deployment</li>
+                            <li>AI model governance</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment List -->
+        <section class="equipment-list" aria-labelledby="equipment-title">
+            <div class="container">
+                <h2 class="section-title" id="equipment-title">Laboratory Equipment</h2>
+                <p class="section-subtitle">High-performance computing systems and AI development tools</p>
+                
+                <div class="equipment-categories">
+                    <div class="equipment-category">
+                        <h3>Computing Infrastructure</h3>
+                        <div class="equipment-items">
+                            <div class="equipment-item">
+                                <i class="fas fa-microchip" aria-hidden="true"></i>
+                                <span>GPU Workstations (RTX 4090/3090)</span>
+                            </div>
+                            <div class="equipment-item">
+                                <i class="fas fa-server" aria-hidden="true"></i>
+                                <span>AI Training Server with 4x GPUs</span>
+                            </div>
+                            <div class="equipment-item">
+                                <i class="fas fa-memory" aria-hidden="true"></i>
+                                <span>High-memory Development Nodes</span>
+                            </div>
+                            <div class="equipment-item">
+                                <i class="fas fa-hdd" aria-hidden="true"></i>
+                                <span>High-speed Storage Systems</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="equipment-category">
+                        <h3>AI Frameworks & Software</h3>
+                        <div class="equipment-items">
+                            <div class="equipment-item">
+                                <i class="fab fa-python" aria-hidden="true"></i>
+                                <span>TensorFlow & PyTorch</span>
+                            </div>
+                            <div class="equipment-item">
+                                <i class="fas fa-brain" aria-hidden="true"></i>
+                                <span>Scikit-learn & XGBoost</span>
+                            </div>
+                            <div class="equipment-item">
+                                <i class="fas fa-language" aria-hidden="true"></i>
+                                <span>OpenNMT & Hugging Face</span>
+                            </div>
+                            <div class="equipment-item">
+                                <i class="fas fa-eye" aria-hidden="true"></i>
+                                <span>OpenCV & Pillow</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="equipment-category">
+                        <h3>Development Tools</h3>
+                        <div class="equipment-items">
+                            <div class="equipment-item">
+                                <i class="fab fa-docker" aria-hidden="true"></i>
+                                <span>Docker & Kubernetes</span>
+                            </div>
+                            <div class="equipment-item">
+                                <i class="fas fa-code-branch" aria-hidden="true"></i>
+                                <span>Jupyter Notebooks & VS Code</span>
+                            </div>
+                            <div class="equipment-item">
+                                <i class="fas fa-cloud" aria-hidden="true"></i>
+                                <span>MLflow & Weights & Biases</span>
+                            </div>
+                            <div class="equipment-item">
+                                <i class="fas fa-chart-bar" aria-hidden="true"></i>
+                                <span>Matplotlib & Seaborn</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="equipment-category">
+                        <h3>Data & Datasets</h3>
+                        <div class="equipment-items">
+                            <div class="equipment-item">
+                                <i class="fas fa-database" aria-hidden="true"></i>
+                                <span>Curated Datasets Library</span>
+                            </div>
+                            <div class="equipment-item">
+                                <i class="fas fa-image" aria-hidden="true"></i>
+                                <span>Image & Video Collections</span>
+                            </div>
+                            <div class="equipment-item">
+                                <i class="fas fa-language" aria-hidden="true"></i>
+                                <span>Text & NLP Corpora</span>
+                            </div>
+                            <div class="equipment-item">
+                                <i class="fas fa-table" aria-hidden="true"></i>
+                                <span>Real-world Industry Data</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specifications -->
+        <section class="lab-specifications" aria-labelledby="specs-title">
+            <div class="container">
+                <h2 class="section-title" id="specs-title">Technical Specifications</h2>
+                <div class="specs-grid">
+                    <div class="specs-item">
+                        <h4>Hardware Requirements</h4>
+                        <ul>
+                            <li>GPU: NVIDIA RTX 4090/3090 (minimum 24GB VRAM)</li>
+                            <li>CPU: Intel i9/AMD Ryzen 9 or equivalent</li>
+                            <li>RAM: 64GB minimum, 128GB recommended</li>
+                            <li>Storage: 2TB NVMe SSD + 4TB HDD</li>
+                        </ul>
+                    </div>
+                    <div class="specs-item">
+                        <h4>Server Infrastructure</h4>
+                        <ul>
+                            <li>4x GPU training server with NVLink</li>
+                            <li>Network: 10Gbps Ethernet</li>
+                            <li>Backup: Automated daily snapshots</li>
+                            <li>Redundancy: RAID 6 configuration</li>
+                        </ul>
+                    </div>
+                    <div class="specs-item">
+                        <h4>Software Stack</h4>
+                        <ul>
+                            <li>OS: Ubuntu 22.04 LTS / CentOS 8</li>
+                            <li>Python 3.10+ with conda/venv</li>
+                            <li>CUDA 12.0+ and cuDNN 8.0+</li>
+                            <li>Docker & Kubernetes support</li>
+                        </ul>
+                    </div>
+                    <div class="specs-item">
+                        <h4>Cloud Integration</h4>
+                        <ul>
+                            <li>AWS/GCP/Azure compatibility</li>
+                            <li>JupyterHub for collaborative work</li>
+                            <li>MLflow for experiment tracking</li>
+                            <li>Auto-scaling capabilities</li>
                         </ul>
                     </div>
                 </div>
-                <div class="overview-stats">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>25-30</h3>
-                        <p>Student Capacity</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3>3-4</h3>
-                        <p>Weeks Setup</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <h3>4x</h3>
-                        <p>GPU Systems</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3>15+</h3>
-                        <p>AI Frameworks</p>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Lab Modules -->
-    <section class="lab-modules">
-        <div class="container">
-            <h2 class="section-title">Learning Modules</h2>
-            <p class="section-subtitle">Comprehensive curriculum covering all aspects of artificial intelligence and machine learning</p>
-            
-            <div class="modules-grid">
-                <div class="module-card">
-                    <div class="module-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Deep Learning</h3>
-                    <ul>
-                        <li>Neural network fundamentals</li>
-                        <li>Convolutional Neural Networks (CNNs)</li>
-                        <li>Recurrent Neural Networks (RNNs/LSTMs)</li>
-                        <li>Transformer architectures</li>
-                        <li>Generative Adversarial Networks (GANs)</li>
-                        <li>Transfer learning techniques</li>
-                    </ul>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Computer Vision</h3>
-                    <ul>
-                        <li>Image processing fundamentals</li>
-                        <li>Object detection and recognition</li>
-                        <li>Semantic segmentation</li>
-                        <li>Face recognition systems</li>
-                        <li>Medical image analysis</li>
-                        <li>Video analytics and tracking</li>
-                    </ul>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3>Natural Language Processing</h3>
-                    <ul>
-                        <li>Text preprocessing and tokenization</li>
-                        <li>Sentiment analysis and classification</li>
-                        <li>Named entity recognition</li>
-                        <li>Language translation systems</li>
-                        <li>Chatbot development</li>
-                        <li>Large language models (LLMs)</li>
-                    </ul>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Machine Learning Algorithms</h3>
-                    <ul>
-                        <li>Supervised learning methods</li>
-                        <li>Unsupervised learning techniques</li>
-                        <li>Ensemble methods (Random Forest, XGBoost)</li>
-                        <li>Support Vector Machines</li>
-                        <li>Clustering algorithms</li>
-                        <li>Reinforcement learning</li>
-                    </ul>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Data Science & Analytics</h3>
-                    <ul>
-                        <li>Data collection and preprocessing</li>
-                        <li>Exploratory data analysis</li>
-                        <li>Feature engineering</li>
-                        <li>Statistical modeling</li>
-                        <li>Data visualization techniques</li>
-                        <li>Big data processing</li>
-                    </ul>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3>AI Deployment & MLOps</h3>
-                    <ul>
-                        <li>Model deployment strategies</li>
-                        <li>Containerization (Docker/Kubernetes)</li>
-                        <li>Model monitoring and maintenance</li>
-                        <li>A/B testing for AI models</li>
-                        <li>Edge AI deployment</li>
-                        <li>AI model governance</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Equipment List -->
-    <section class="equipment-list">
-        <div class="container">
-            <h2 class="section-title">Laboratory Equipment</h2>
-            <p class="section-subtitle">High-performance computing systems and AI development tools</p>
-            
-            <div class="equipment-categories">
-                <div class="equipment-category">
-                    <h3>Computing Infrastructure</h3>
-                    <div class="equipment-items">
-                        <div class="equipment-item">
-                            <i class="fas fa-microchip"></i>
-                            <span>GPU Workstations (RTX 4090/3090)</span>
-                        </div>
-                        <div class="equipment-item">
-                            <i class="fas fa-server"></i>
-                            <span>AI Training Server with 4x GPUs</span>
-                        </div>
-                        <div class="equipment-item">
-                            <i class="fas fa-memory"></i>
-                            <span>High-memory Development Nodes</span>
-                        </div>
-                        <div class="equipment-item">
-                            <i class="fas fa-hdd"></i>
-                            <span>High-speed Storage Systems</span>
+        <!-- Projects & Use Cases -->
+        <section class="lab-projects" aria-labelledby="projects-title">
+            <div class="container">
+                <h2 class="section-title" id="projects-title">Student Projects & Research</h2>
+                <p class="section-subtitle">Real-world projects that students work on in the lab</p>
+                
+                <div class="projects-showcase">
+                    <div class="project-category">
+                        <h3>Computer Vision Projects</h3>
+                        <div class="project-items">
+                            <article class="project-item">
+                                <h4>Automated Quality Inspection</h4>
+                                <p>AI system for detecting defects in manufacturing products using computer vision.</p>
+                            </article>
+                            <article class="project-item">
+                                <h4>Medical Image Analysis</h4>
+                                <p>Deep learning models for X-ray and MRI analysis for disease detection.</p>
+                            </article>
+                            <article class="project-item">
+                                <h4>Traffic Management System</h4>
+                                <p>Real-time vehicle detection and traffic flow optimization using CCTV feeds.</p>
+                            </article>
                         </div>
                     </div>
-                </div>
 
-                <div class="equipment-category">
-                    <h3>AI Frameworks & Software</h3>
-                    <div class="equipment-items">
-                        <div class="equipment-item">
-                            <i class="fab fa-python"></i>
-                            <span>TensorFlow & PyTorch</span>
-                        </div>
-                        <div class="equipment-item">
-                            <i class="fas fa-brain"></i>
-                            <span>Scikit-learn & XGBoost</span>
-                        </div>
-                        <div class="equipment-item">
-                            <i class="fas fa-language"></i>
-                            <span>OpenNMT & Hugging Face</span>
-                        </div>
-                        <div class="equipment-item">
-                            <i class="fas fa-eye"></i>
-                            <span>OpenCV & Pillow</span>
+                    <div class="project-category">
+                        <h3>NLP Projects</h3>
+                        <div class="project-items">
+                            <article class="project-item">
+                                <h4>Chatbot Development</h4>
+                                <p>Intelligent customer service chatbot with natural conversation capabilities.</p>
+                            </article>
+                            <article class="project-item">
+                                <h4>Sentiment Analysis</h4>
+                                <p>Social media sentiment monitoring for brand reputation management.</p>
+                            </article>
+                            <article class="project-item">
+                                <h4>Document Classification</h4>
+                                <p>Automated document sorting and categorization using NLP techniques.</p>
+                            </article>
                         </div>
                     </div>
-                </div>
 
-                <div class="equipment-category">
-                    <h3>Development Tools</h3>
-                    <div class="equipment-items">
-                        <div class="equipment-item">
-                            <i class="fab fa-docker"></i>
-                            <span>Docker & Kubernetes</span>
-                        </div>
-                        <div class="equipment-item">
-                            <i class="fas fa-code-branch"></i>
-                            <span>Jupyter Notebooks & VS Code</span>
-                        </div>
-                        <div class="equipment-item">
-                            <i class="fas fa-cloud"></i>
-                            <span>MLflow & Weights & Biases</span>
-                        </div>
-                        <div class="equipment-item">
-                            <i class="fas fa-chart-bar"></i>
-                            <span>Matplotlib & Seaborn</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="equipment-category">
-                    <h3>Data & Datasets</h3>
-                    <div class="equipment-items">
-                        <div class="equipment-item">
-                            <i class="fas fa-database"></i>
-                            <span>Curated Datasets Library</span>
-                        </div>
-                        <div class="equipment-item">
-                            <i class="fas fa-image"></i>
-                            <span>Image & Video Collections</span>
-                        </div>
-                        <div class="equipment-item">
-                            <i class="fas fa-language"></i>
-                            <span>Text & NLP Corpora</span>
-                        </div>
-                        <div class="equipment-item">
-                            <i class="fas fa-table"></i>
-                            <span>Real-world Industry Data</span>
+                    <div class="project-category">
+                        <h3>Machine Learning Projects</h3>
+                        <div class="project-items">
+                            <article class="project-item">
+                                <h4>Predictive Maintenance</h4>
+                                <p>IoT sensor data analysis for predicting equipment failures.</p>
+                            </article>
+                            <article class="project-item">
+                                <h4>Fraud Detection</h4>
+                                <p>Real-time transaction monitoring system using ensemble learning.</p>
+                            </article>
+                            <article class="project-item">
+                                <h4>Recommendation Systems</h4>
+                                <p>Personalized content recommendation engine using collaborative filtering.</p>
+                            </article>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Specifications -->
-    <section class="lab-specifications">
-        <div class="container">
-            <h2 class="section-title">Technical Specifications</h2>
-            <div class="specs-grid">
-                <div class="specs-item">
-                    <h4>Hardware Requirements</h4>
-                    <ul>
-                        <li>GPU: NVIDIA RTX 4090/3090 (minimum 24GB VRAM)</li>
-                        <li>CPU: Intel i9/AMD Ryzen 9 or equivalent</li>
-                        <li>RAM: 64GB minimum, 128GB recommended</li>
-                        <li>Storage: 2TB NVMe SSD + 4TB HDD</li>
-                    </ul>
-                </div>
-                <div class="specs-item">
-                    <h4>Server Infrastructure</h4>
-                    <ul>
-                        <li>4x GPU training server with NVLink</li>
-                        <li>Network: 10Gbps Ethernet</li>
-                        <li>Backup: Automated daily snapshots</li>
-                        <li>Redundancy: RAID 6 configuration</li>
-                    </ul>
-                </div>
-                <div class="specs-item">
-                    <h4>Software Stack</h4>
-                    <ul>
-                        <li>OS: Ubuntu 22.04 LTS / CentOS 8</li>
-                        <li>Python 3.10+ with conda/venv</li>
-                        <li>CUDA 12.0+ and cuDNN 8.0+</li>
-                        <li>Docker & Kubernetes support</li>
-                    </ul>
-                </div>
-                <div class="specs-item">
-                    <h4>Cloud Integration</h4>
-                    <ul>
-                        <li>AWS/GCP/Azure compatibility</li>
-                        <li>JupyterHub for collaborative work</li>
-                        <li>MLflow for experiment tracking</li>
-                        <li>Auto-scaling capabilities</li>
-                    </ul>
+        <!-- Career Opportunities -->
+        <section class="career-opportunities" aria-labelledby="career-title">
+            <div class="container">
+                <h2 class="section-title" id="career-title">Career Opportunities</h2>
+                <p class="section-subtitle">Prepare students for high-demand AI and ML careers</p>
+                
+                <div class="career-grid">
+                    <article class="career-item">
+                        <div class="career-icon">
+                            <i class="fas fa-brain" aria-hidden="true"></i>
+                        </div>
+                        <h3>Machine Learning Engineer</h3>
+                        <p>Design and deploy machine learning models for production environments and real-time applications.</p>
+                        <div class="salary-range">₹6-18 Lakhs/year</div>
+                    </article>
+
+                    <article class="career-item">
+                        <div class="career-icon">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </div>
+                        <h3>Computer Vision Engineer</h3>
+                        <p>Develop AI systems for image and video analysis, object detection, and visual recognition.</p>
+                        <div class="salary-range">₹7-20 Lakhs/year</div>
+                    </article>
+
+                    <article class="career-item">
+                        <div class="career-icon">
+                            <i class="fas fa-comments" aria-hidden="true"></i>
+                        </div>
+                        <h3>NLP Engineer</h3>
+                        <p>Build language understanding systems, chatbots, and text analysis applications.</p>
+                        <div class="salary-range">₹6-16 Lakhs/year</div>
+                    </article>
+
+                    <article class="career-item">
+                        <div class="career-icon">
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        </div>
+                        <h3>Data Scientist</h3>
+                        <p>Analyze complex datasets, build predictive models, and derive actionable business insights.</p>
+                        <div class="salary-range">₹5-15 Lakhs/year</div>
+                    </article>
+
+                    <article class="career-item">
+                        <div class="career-icon">
+                            <i class="fas fa-robot" aria-hidden="true"></i>
+                        </div>
+                        <h3>AI Research Scientist</h3>
+                        <p>Conduct advanced research in artificial intelligence and publish findings in top conferences.</p>
+                        <div class="salary-range">₹8-25 Lakhs/year</div>
+                    </article>
+
+                    <article class="career-item">
+                        <div class="career-icon">
+                            <i class="fas fa-cogs" aria-hidden="true"></i>
+                        </div>
+                        <h3>MLOps Engineer</h3>
+                        <p>Specialize in deploying, monitoring, and maintaining machine learning systems in production.</p>
+                        <div class="salary-range">₹7-18 Lakhs/year</div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects & Use Cases -->
-    <section class="lab-projects">
-        <div class="container">
-            <h2 class="section-title">Student Projects & Research</h2>
-            <p class="section-subtitle">Real-world projects that students work on in the lab</p>
-            
-            <div class="projects-showcase">
-                <div class="project-category">
-                    <h3>Computer Vision Projects</h3>
-                    <div class="project-items">
-                        <div class="project-item">
-                            <h4>Automated Quality Inspection</h4>
-                            <p>AI system for detecting defects in manufacturing products using computer vision.</p>
-                        </div>
-                        <div class="project-item">
-                            <h4>Medical Image Analysis</h4>
-                            <p>Deep learning models for X-ray and MRI analysis for disease detection.</p>
-                        </div>
-                        <div class="project-item">
-                            <h4>Traffic Management System</h4>
-                            <p>Real-time vehicle detection and traffic flow optimization using CCTV feeds.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-category">
-                    <h3>NLP Projects</h3>
-                    <div class="project-items">
-                        <div class="project-item">
-                            <h4>Chatbot Development</h4>
-                            <p>Intelligent customer service chatbot with natural conversation capabilities.</p>
-                        </div>
-                        <div class="project-item">
-                            <h4>Sentiment Analysis</h4>
-                            <p>Social media sentiment monitoring for brand reputation management.</p>
-                        </div>
-                        <div class="project-item">
-                            <h4>Document Classification</h4>
-                            <p>Automated document sorting and categorization using NLP techniques.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-category">
-                    <h3>Machine Learning Projects</h3>
-                    <div class="project-items">
-                        <div class="project-item">
-                            <h4>Predictive Maintenance</h4>
-                            <p>IoT sensor data analysis for predicting equipment failures.</p>
-                        </div>
-                        <div class="project-item">
-                            <h4>Fraud Detection</h4>
-                            <p>Real-time transaction monitoring system using ensemble learning.</p>
-                        </div>
-                        <div class="project-item">
-                            <h4>Recommendation Systems</h4>
-                            <p>Personalized content recommendation engine using collaborative filtering.</p>
-                        </div>
+        <!-- CTA Section -->
+        <section class="cta-section" aria-labelledby="cta-title">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 id="cta-title">Ready to Build Your AI Lab?</h2>
+                    <p>Empower your institution with cutting-edge AI and machine learning capabilities. Get started with our comprehensive AI laboratory solution.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Get Lab Quote</a>
+                        <a href="work.html" class="btn btn-secondary">View AI Projects</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Career Opportunities -->
-    <section class="career-opportunities">
-        <div class="container">
-            <h2 class="section-title">Career Opportunities</h2>
-            <p class="section-subtitle">Prepare students for high-demand AI and ML careers</p>
-            
-            <div class="career-grid">
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Machine Learning Engineer</h3>
-                    <p>Design and deploy machine learning models for production environments and real-time applications.</p>
-                    <div class="salary-range">₹6-18 Lakhs/year</div>
-                </div>
+    </main>
 
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Computer Vision Engineer</h3>
-                    <p>Develop AI systems for image and video analysis, object detection, and visual recognition.</p>
-                    <div class="salary-range">₹7-20 Lakhs/year</div>
-                </div>
-
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3>NLP Engineer</h3>
-                    <p>Build language understanding systems, chatbots, and text analysis applications.</p>
-                    <div class="salary-range">₹6-16 Lakhs/year</div>
-                </div>
-
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Data Scientist</h3>
-                    <p>Analyze complex datasets, build predictive models, and derive actionable business insights.</p>
-                    <div class="salary-range">₹5-15 Lakhs/year</div>
-                </div>
-
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>AI Research Scientist</h3>
-                    <p>Conduct advanced research in artificial intelligence and publish findings in top conferences.</p>
-                    <div class="salary-range">₹8-25 Lakhs/year</div>
-                </div>
-
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>MLOps Engineer</h3>
-                    <p>Specialize in deploying, monitoring, and maintaining machine learning systems in production.</p>
-                    <div class="salary-range">₹7-18 Lakhs/year</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Build Your AI Lab?</h2>
-                <p>Empower your institution with cutting-edge AI and machine learning capabilities. Get started with our comprehensive AI laboratory solution.</p>
-                <div class="cta-buttons">
-                    <a href="contact.html"><button class="btn-primary">Get Lab Quote</button></a>
-                    <a href="work.html"><button class="btn-secondary">View AI Projects</button></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="logo.svg" alt="eSkillLab Logo">
+                <div class="footer-about">
+                    <img src="logo.svg" alt="eSkillLab Logo" width="150" height="40" loading="lazy">
                     <p>Empowering innovation through practical technology training.</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
+                
+                <nav class="footer-nav" aria-labelledby="quick-links-title">
+                    <h4 id="quick-links-title">Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
@@ -540,33 +1720,113 @@
                         <li><a href="work.html">Work</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
-                </div>
-                <div class="footer-labs">
-                    <h4>Our Labs</h4>
+                </nav>
+                
+                <nav class="footer-nav" aria-labelledby="our-labs-title">
+                    <h4 id="our-labs-title">Our Labs</h4>
                     <ul>
                         <li><a href="ev-lab.html">Electric Vehicle Lab</a></li>
-                        <li><a href="ai-lab.html">AI & Machine Learning</a></li>
+                        <li><a href="ai-lab.html" aria-current="page">AI & Machine Learning</a></li>
                         <li><a href="iot-lab.html">Industrial IoT Lab</a></li>
+                        <li><a href="BI-lab.html">Business Intelligence Lab</a></li>
                         <li><a href="labs.html">View All Labs</a></li>
                     </ul>
-                </div>
+                </nav>
+                
                 <div class="footer-social">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <h4 id="social-title">Follow Us</h4>
+                    <ul class="social-links" aria-labelledby="social-title">
+                        <li><a href="#" aria-label="Visit our Facebook page"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#" aria-label="Visit our Twitter profile"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#" aria-label="Visit our LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#" aria-label="Visit our Instagram profile"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
                 <p>&copy; 2025 eSkillLab. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- External JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        // Navigation scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger-button');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animations
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+    </script>
+
 </body>
 </html>
