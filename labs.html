@@ -741,84 +741,342 @@
         }
 
         /* ===================================
+          /* ============================================
            FOOTER
-        =================================== */
+        ============================================ */
+ /* ============================================
+           FOOTER - ENHANCED VERSION
+        ============================================ */
         .footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 0 20px;
+            background: var(--gradient-dark);
+            color: var(--white);
+            padding-top: var(--spacing-3xl);
+            position: relative;
+            overflow: hidden;
         }
 
-        .footer-content {
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-main {
+            padding-bottom: var(--spacing-2xl);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: var(--spacing-2xl);
+            align-items: start; /* ADD THIS LINE - keeps items aligned to top */
         }
 
-        .footer-logo img {
-            height: 40px;
-            margin-bottom: 1rem;
-            filter: brightness(0) invert(1);
+        .footer-about {
+           .footer-about {
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* ADD THIS - aligns logo to left */
+    margin-top: -50px; /* Negative margin to pull content back up */
+}
         }
 
-        .footer-logo p {
-            color: #94a3b8;
+            .footer-logo-img {
+    height: 150px;
+    width: auto;
+    margin-bottom: var(--spacing-md);
+    filter: brightness(0) invert(1);
+    object-fit: contain;
+    transform-origin: top left; /* Makes it scale from top-left corner */
+    margin-top: -50px; /* Negative margin to pull content back up */
+}
+        
+
+        .footer-description {
+            color: var(--gray-light);
             line-height: 1.7;
-            max-width: 350px;
+            margin-bottom: var(--spacing-lg);
+            font-size: 0.9375rem;
+            margin-top: -60px; /* Negative margin to pull content back up */
         }
 
-        .footer-links h4,
-        .footer-labs h4,
-        .footer-social h4 {
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+        /* Newsletter Box */
+        .newsletter-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .footer-links ul li,
-        .footer-labs ul li {
-            margin-bottom: 0.75rem;
+        .newsletter-box h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
         }
 
-        .footer-links a,
-        .footer-labs a {
-            color: #94a3b8;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover,
-        .footer-labs a:hover {
-            color: var(--primary-light);
-            padding-left: 8px;
-        }
-
-        .social-links {
+        .newsletter-form {
             display: flex;
-            gap: 1rem;
+            gap: var(--spacing-xs);
         }
 
-        .social-links a {
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-size: 0.875rem;
+            transition: all var(--transition-base);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--gray-light);
+        }
+
+        .newsletter-form button {
+            padding: 0.75rem 1.25rem;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: var(--radius-lg);
+            color: var(--white);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Footer Columns */
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* ADD THIS */
+        }
+
+        .footer-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--white);
+            position: relative;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .footer-links li a {
+            color: var(--gray-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            transition: all var(--transition-base);
+            font-size: 0.9375rem;
+        }
+
+        .footer-links li a i {
+            font-size: 0.75rem;
+            transition: all var(--transition-base);
+        }
+
+        .footer-links li a:hover {
+            color: var(--primary-light);
+            transform: translateX(5px);
+        }
+
+        .footer-links li a:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Footer Contact */
+        .footer-contact {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .footer-contact li {
+            display: flex;
+            gap: var(--spacing-sm);
+            color: var(--gray-light);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        .footer-contact li i {
+            color: var(--primary-light);
+            font-size: 1rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        /* Footer Social */
+        .footer-social {
+            margin-top: var(--spacing-lg);
+        }
+
+        .footer-social h5 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
             width: 40px;
             height: 40px;
-            background: #334155;
-            border-radius: 50%;
+            border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            color: var(--white);
+            transition: all var(--transition-base);
+            font-size: 1rem;
         }
 
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
+        .social-icon.facebook { background: #1877f2; }
+        .social-icon.twitter { background: #1da1f2; }
+        .social-icon.linkedin { background: #0a66c2; }
+        .social-icon.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .social-icon.youtube { background: #ff0000; }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
+        /* Footer Bottom */
         .footer-bottom {
-            border-top: 1px solid #334155;
-            padding-top: 2rem;
-            text-align: center;
-            color: #94a3b8;
+            padding: var(--spacing-xl) 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .copyright {
+            color: var(--gray-light);
+            font-size: 0.9375rem;
+        }
+
+        .copyright strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: all var(--transition-base);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .footer-bottom-links .separator {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-about {
+                grid-column: 1 / -1;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-about {
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-links li a {
+                justify-content: center;
+            }
+
+            .footer-contact li {
+                justify-content: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                justify-content: center;
+            }
         }
 
         /* ===================================
@@ -1307,47 +1565,114 @@
     </section>
 
     <!-- Footer -->
+ <!-- ============================================
+         FOOTER - ENHANCED VERSION
+    ============================================ -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="logo.svg" alt="eSkillLab Logo">
-                    <p>Empowering innovation through practical technology training.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="labs.html">Labs</a></li>
-                        <li><a href="work.html">Work</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-labs">
-                    <h4>Our Labs</h4>
-                    <ul>
-                        <li><a href="ev-lab.html">Electric Vehicle Lab</a></li>
-                        <li><a href="ai-lab.html">AI & Machine Learning</a></li>
-                        <li><a href="iot-lab.html">Industrial IoT Lab</a></li>
-                        <li><a href="labs.html">View All Labs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-grid">
+                    <!-- Company Info -->
+                    <div class="footer-about">
+                        <img src="logo.svg" alt="eSkillLab Logo" class="footer-logo-img">
+                        <p class="footer-description">Empowering the next generation of innovators through cutting-edge technology labs and hands-on training programs.</p>
+                        
+                        <!-- Newsletter Subscription -->
+                        <div class="newsletter-box">
+                            <h4>Stay Updated</h4>
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Your email address" aria-label="Email for newsletter">
+                                <button type="submit" aria-label="Subscribe to newsletter">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-column">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                            <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+                            <li><a href="labs.html"><i class="fas fa-angle-right"></i> Our Labs</a></li>
+                            <li><a href="work.html"><i class="fas fa-angle-right"></i> Portfolio</a></li>
+                            <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Our Labs -->
+                    <div class="footer-column">
+                        <h4 class="footer-title">Technology Labs</h4>
+                        <ul class="footer-links">
+                            <li><a href="ev-lab.html"><i class="fas fa-bolt"></i> Electric Vehicle Lab</a></li>
+                            <li><a href="ai-lab.html"><i class="fas fa-brain"></i> AI & ML Lab</a></li>
+                            <li><a href="iot-lab.html"><i class="fas fa-network-wired"></i> Industrial IoT Lab</a></li>
+                            <li><a href="labs.html"><i class="fas fa-flask"></i> View All Labs</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="footer-column">
+                        <h4 class="footer-title">Get In Touch</h4>
+                        <ul class="footer-contact">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>TechPark Complex, Coimbatore<br>Tamil Nadu 641029, India</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>+91 422 456 7890</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>info@eskilllab.com</span>
+                            </li>
+                        </ul>
+
+                        <!-- Social Links -->
+                        <div class="footer-social">
+                            <h5>Follow Us</h5>
+                            <div class="social-icons">
+                                <a href="#" aria-label="Facebook" class="social-icon facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" aria-label="Twitter" class="social-icon twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                
+                                <a href="#" aria-label="Instagram" class="social-icon instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" aria-label="YouTube" class="social-icon youtube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
-                <p>&copy; 2025 eSkillLab. All rights reserved.</p>
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2025 <strong>eSkillLab Technologies</strong>. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <span class="separator">•</span>
+                        <a href="#">Terms of Service</a>
+                        <span class="separator">•</span>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
+
+    
 
     <script>
         // ===================================
