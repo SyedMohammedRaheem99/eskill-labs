@@ -1410,121 +1410,121 @@
 
                     <!-- Contact Form -->
                   
-                    <div class="contact-form-wrapper">
-                        <div class="contact-form-container">
-                            <h3>Send Us a Message</h3>
-                            
-                            <div id="formMessage" class="form-message"></div>
-                            
-                            <form id="contactForm">
-                                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+<!-- Contact Form -->
+<form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+  <!-- Web3Forms Access Key -->
   <input type="hidden" name="access_key" value="eaeaa8aa-3de3-4a99-8dd3-eef305ee3378">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="firstName">First Name *</label>
-                                        <input type="text" id="firstName" name="firstName" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lastName">Last Name *</label>
-                                        <input type="text" id="lastName" name="lastName" required>
-                                    </div>
-                                </div>
 
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="email">Email Address *</label>
-                                        <input type="email" id="email" name="email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="phone">Phone Number *</label>
-                                        <input type="tel" id="phone" name="phone" required>
-                                    </div>
-                                </div>
+  <div class="contact-form-wrapper">
+    <div class="contact-form-container">
+      <h3>Send Us a Message</h3>
 
-                                <div class="form-group">
-                                    <label for="organization">Institution/Organization *</label>
-                                    <input type="text" id="organization" name="organization" required>
-                                </div>
+      <div id="formMessage" class="form-message"></div>
 
-                                <div class="form-group">
-                                    <label for="designation">Your Designation</label>
-                                    <select id="designation" name="designation">
-                                        <option value="">Select Designation</option>
-                                        <option value="principal">Principal/Director</option>
-                                        <option value="hod">Head of Department</option>
-                                        <option value="faculty">Faculty Member</option>
-                                        <option value="admin">Administrative Staff</option>
-                                        <option value="procurement">Procurement Manager</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name *</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name *</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+      </div>
 
-                                <div class="form-group">
-                                    <label for="labType">Lab Interest *</label>
-                                    <select id="labType" name="labType" required>
-                                        <option value="">Select Lab Type</option>
-                                        <option value="ev-lab">Electric Vehicle Lab</option>
-                                        <option value="ai-ml-lab">AI & Machine Learning Lab</option>
-                                        <option value="iot-lab">Industrial IoT Lab</option>
-                                        <option value="robotics-lab">Robotics Lab</option>
-                                        <option value="industry4-lab">Industry 4.0 Lab</option>
-                                        <option value="cybersecurity-lab">Cybersecurity Lab</option>
-                                        <option value="multi-lab">Multiple Labs</option>
-                                        <option value="consultation">General Consultation</option>
-                                    </select>
-                                </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+      </div>
 
-                                <div class="form-group">
-                                    <label for="budget">Budget Range</label>
-                                    <select id="budget" name="budget">
-                                        <option value="">Select Budget Range</option>
-                                        <option value="under-10">Under ₹10 Lakhs</option>
-                                        <option value="10-25">₹10 - ₹25 Lakhs</option>
-                                        <option value="25-50">₹25 - ₹50 Lakhs</option>
-                                        <option value="50-100">₹50 Lakhs - ₹1 Crore</option>
-                                        <option value="above-100">Above ₹1 Crore</option>
-                                        <option value="discuss">Prefer to Discuss</option>
-                                    </select>
-                                </div>
+      <div class="form-group">
+        <label for="organization">Institution/Organization *</label>
+        <input type="text" id="organization" name="organization" required>
+      </div>
 
-                                <div class="form-group">
-                                    <label for="timeline">Expected Timeline</label>
-                                    <select id="timeline" name="timeline">
-                                        <option value="">Select Timeline</option>
-                                        <option value="immediate">Immediate (Within 1 month)</option>
-                                        <option value="1-3">1-3 months</option>
-                                        <option value="3-6">3-6 months</option>
-                                        <option value="6-12">6-12 months</option>
-                                        <option value="planning">Just Planning</option>
-                                    </select>
-                                </div>
+      <div class="form-group">
+        <label for="designation">Your Designation</label>
+        <select id="designation" name="designation">
+          <option value="">Select Designation</option>
+          <option value="principal">Principal/Director</option>
+          <option value="hod">Head of Department</option>
+          <option value="faculty">Faculty Member</option>
+          <option value="admin">Administrative Staff</option>
+          <option value="procurement">Procurement Manager</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
 
-                                <div class="form-group">
-                                    <label for="message">Message/Requirements *</label>
-                                    <textarea id="message" name="message" rows="5" placeholder="Please describe your requirements, space details, student capacity, and any specific queries..." required></textarea>
-                                </div>
+      <div class="form-group">
+        <label for="labType">Lab Interest *</label>
+        <select id="labType" name="labType" required>
+          <option value="">Select Lab Type</option>
+          <option value="ev-lab">Electric Vehicle Lab</option>
+          <option value="ai-ml-lab">AI & Machine Learning Lab</option>
+          <option value="iot-lab">Industrial IoT Lab</option>
+          <option value="robotics-lab">Robotics Lab</option>
+          <option value="industry4-lab">Industry 4.0 Lab</option>
+          <option value="cybersecurity-lab">Cybersecurity Lab</option>
+          <option value="multi-lab">Multiple Labs</option>
+          <option value="consultation">General Consultation</option>
+        </select>
+      </div>
 
-                                <div class="form-group checkbox-group">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" id="newsletter" name="newsletter">
-                                        <span>Subscribe to our newsletter for updates on new lab solutions and technologies</span>
-                                    </label>
-                                </div>
+      <div class="form-group">
+        <label for="budget">Budget Range</label>
+        <select id="budget" name="budget">
+          <option value="">Select Budget Range</option>
+          <option value="under-10">Under ₹10 Lakhs</option>
+          <option value="10-25">₹10 - ₹25 Lakhs</option>
+          <option value="25-50">₹25 - ₹50 Lakhs</option>
+          <option value="50-100">₹50 Lakhs - ₹1 Crore</option>
+          <option value="above-100">Above ₹1 Crore</option>
+          <option value="discuss">Prefer to Discuss</option>
+        </select>
+      </div>
 
-                                <div class="form-group checkbox-group">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" id="terms" name="terms" required>
-                                        <span>I agree to the Terms & Conditions and Privacy Policy *</span>
-                                    </label>
-                                </div>
+      <div class="form-group">
+        <label for="timeline">Expected Timeline</label>
+        <select id="timeline" name="timeline">
+          <option value="">Select Timeline</option>
+          <option value="immediate">Immediate (Within 1 month)</option>
+          <option value="1-3">1-3 months</option>
+          <option value="3-6">3-6 months</option>
+          <option value="6-12">6-12 months</option>
+          <option value="planning">Just Planning</option>
+        </select>
+      </div>
 
-                                <button type="submit" class="btn btn-primary">Send Message</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="form-group">
+        <label for="message">Message/Requirements *</label>
+        <textarea id="message" name="message" rows="5" placeholder="Please describe your requirements..." required></textarea>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="newsletter" name="newsletter">
+          <span>Subscribe to our newsletter for updates on new lab solutions and technologies</span>
+        </label>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="terms" name="terms" required>
+          <span>I agree to the Terms & Conditions and Privacy Policy *</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </div>
+  </div>
+</form>
+
 
         <!-- Map Section -->
         <section class="map-section">
