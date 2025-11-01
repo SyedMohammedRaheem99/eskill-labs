@@ -859,7 +859,12 @@
         }
 
         .footer-about {
-            max-width: 350px;
+           .footer-about {
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* ADD THIS - aligns logo to left */
+}
         }
 
         .footer-logo-img {
@@ -867,6 +872,7 @@
             width: auto;
             margin-bottom: var(--spacing-md);
             filter: brightness(0) invert(1);
+            object-fit: contain; /* ADD THIS - prevents distortion */
         }
 
         .footer-description {
