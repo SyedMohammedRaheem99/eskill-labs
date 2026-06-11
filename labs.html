@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Our Technology Labs - Electric Vehicle, AI & Machine Learning, Industrial IoT, Robotics, Industry 4.0, and Cybersecurity labs by eSkillLab.">
+    <meta name="keywords" content="eSkillLab labs, electric vehicle lab, AI lab, IoT lab, robotics lab, cybersecurity lab, industry 4.0">
+    <title>Our Labs - eSkillLab</title>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===================================
+           MODERN RESET & BASE STYLES
+        =================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+         :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --success: #10b981;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --gray-light: #cbd5e1;
+            --white: #ffffff;
+            --background: #f8fafc;
+            
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --spacing-3xl: 6rem;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+            
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #F8F9FF;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        img, picture, video, canvas, svg {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+        }
+
+        /* ===================================
+           VARIABLES
+        =================================== */
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #06b6d4;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-light: linear-gradient(135deg, #f8f9ff 0%, #e8eaff 100%);
+            --dark: #1e293b;
+            --text: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --bg: #F8F9FF;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --shadow-sm: 0 2px 8px rgba(99, 102, 241, 0.08);
+            --shadow-md: 0 4px 16px rgba(99, 102, 241, 0.12);
+            --shadow-lg: 0 8px 32px rgba(99, 102, 241, 0.16);
+            --shadow-xl: 0 16px 48px rgba(99, 102, 241, 0.2);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        /* ===================================
+           CONTAINER & UTILITIES
+        =================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===================================
+           NAVIGATION
+        =================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo img {
+            height: 150px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* ===================================
+           PAGE HEADER
+        =================================== */
+        .page-header {
+            padding: 140px 0 80px;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: backgroundScroll 20s linear infinite;
+        }
+
+        @keyframes backgroundScroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb a {
+            transition: opacity 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* ===================================
+           LABS OVERVIEW
+        =================================== */
+        .labs-overview-main {
+            padding: 80px 0;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+        }
+
+        .intro-text h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .intro-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .labs-main-grid {
+            display: grid;
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .lab-featured-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .lab-featured-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .lab-featured-card:nth-child(even) {
+            direction: rtl;
+        }
+
+        .lab-featured-card:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .lab-image {
+            position: relative;
+            height: 100%;
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .lab-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .lab-featured-card:hover .lab-image img {
+            transform: scale(1.1);
+        }
+
+        .lab-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-md);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .lab-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lab-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+
+        .lab-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .lab-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .lab-content > p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .lab-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--gradient-light);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateX(5px);
+        }
+
+        .feature-item i {
+            color: var(--primary);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .feature-item span {
+            font-size: 0.9rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .lab-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ===================================
+           ADDITIONAL LABS
+        =================================== */
+        .additional-labs {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .lab-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .lab-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .lab-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .lab-card .lab-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+        }
+
+        .lab-card .lab-icon i {
+            font-size: 1.75rem;
+        }
+
+        .lab-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .lab-card ul {
+            margin-bottom: 2rem;
+        }
+
+        .lab-card ul li {
+            padding: 0.75rem 0;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .lab-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .lab-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .lab-card-actions {
+            text-align: center;
+        }
+
+        .lab-card-actions .btn-secondary {
+            width: 100%;
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* ===================================
+           COMPARISON TABLE
+        =================================== */
+        .lab-comparison {
+            padding: 80px 0;
+            background: var(--gradient-light);
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-top: 3rem;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .comparison-table thead {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .comparison-table th {
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .comparison-table tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s ease;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: var(--gradient-light);
+        }
+
+        .comparison-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .lab-type {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .lab-type i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .text-success {
+            color: var(--success);
+            font-size: 1.25rem;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-sm:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ===================================
+           CTA SECTION
+        =================================== */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-section .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-section .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section .btn-secondary {
+            border-color: white;
+            color: white;
+        }
+
+        .cta-section .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* ===================================
+          /* ============================================
+           FOOTER
+        ============================================ */
+ /* ============================================
+           FOOTER - ENHANCED VERSION
+        ============================================ */
+        .footer {
+            background: var(--gradient-dark);
+            color: var(--white);
+            padding-top: var(--spacing-3xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-main {
+            padding-bottom: var(--spacing-2xl);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: var(--spacing-2xl);
+            align-items: start; /* ADD THIS LINE - keeps items aligned to top */
+        }
+
+        .footer-about {
+           .footer-about {
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* ADD THIS - aligns logo to left */
+    margin-top: -50px; /* Negative margin to pull content back up */
+}
+        }
+
+            .footer-logo-img {
+    height: 150px;
+    width: auto;
+    margin-bottom: var(--spacing-md);
+    filter: brightness(0) invert(1);
+    object-fit: contain;
+    transform-origin: top left; /* Makes it scale from top-left corner */
+    margin-top: -50px; /* Negative margin to pull content back up */
+}
+        
+
+        .footer-description {
+            color: var(--gray-light);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-lg);
+            font-size: 0.9375rem;
+            margin-top: -60px; /* Negative margin to pull content back up */
+        }
+
+        /* Newsletter Box */
+        .newsletter-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .newsletter-box h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: var(--spacing-xs);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-size: 0.875rem;
+            transition: all var(--transition-base);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--gray-light);
+        }
+
+        .newsletter-form button {
+            padding: 0.75rem 1.25rem;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: var(--radius-lg);
+            color: var(--white);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Footer Columns */
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* ADD THIS */
+        }
+
+        .footer-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--white);
+            position: relative;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .footer-links li a {
+            color: var(--gray-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            transition: all var(--transition-base);
+            font-size: 0.9375rem;
+        }
+
+        .footer-links li a i {
+            font-size: 0.75rem;
+            transition: all var(--transition-base);
+        }
+
+        .footer-links li a:hover {
+            color: var(--primary-light);
+            transform: translateX(5px);
+        }
+
+        .footer-links li a:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Footer Contact */
+        .footer-contact {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .footer-contact li {
+            display: flex;
+            gap: var(--spacing-sm);
+            color: var(--gray-light);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        .footer-contact li i {
+            color: var(--primary-light);
+            font-size: 1rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        /* Footer Social */
+        .footer-social {
+            margin-top: var(--spacing-lg);
+        }
+
+        .footer-social h5 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--white);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all var(--transition-base);
+            font-size: 1rem;
+        }
+
+        .social-icon.facebook { background: #1877f2; }
+        .social-icon.twitter { background: #1da1f2; }
+        .social-icon.linkedin { background: #0a66c2; }
+        .social-icon.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .social-icon.youtube { background: #ff0000; }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .copyright {
+            color: var(--gray-light);
+            font-size: 0.9375rem;
+        }
+
+        .copyright strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: all var(--transition-base);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .footer-bottom-links .separator {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-about {
+                grid-column: 1 / -1;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-about {
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-links li a {
+                justify-content: center;
+            }
+
+            .footer-contact li {
+                justify-content: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                justify-content: center;
+            }
+        }
+
+      
+
+        /* ===================================
+           RESPONSIVE
+        =================================== */
+        @media (max-width: 1024px) {
+            .lab-featured-card {
+                grid-template-columns: 1fr;
+            }
+
+            .lab-featured-card:nth-child(even) {
+                direction: ltr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-logo {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                width: 100%;
+                height: calc(100vh - 70px);
+                text-align: center;
+                transition: left 0.3s ease;
+                padding: 2rem 0;
+                box-shadow: var(--shadow-lg);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .intro-text h2 {
+                font-size: 2rem;
+            }
+
+            .lab-image {
+                min-height: 300px;
+            }
+
+            .lab-features {
+                grid-template-columns: 1fr;
+            }
+
+            .lab-actions {
+                flex-direction: column;
+            }
+
+            .labs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                overflow-x: auto;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .lab-content {
+                padding: 1.5rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><img src="logo.svg" alt="eSkillLab Logo"></a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="labs.html" class="nav-link active">Labs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="work.html" class="nav-link">Work</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Specialized Labs</h1>
+            <p>Cutting-edge technology labs designed for the future of education</p>
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a> / <span>Our Labs</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Labs Overview Section -->
+    <section class="labs-overview-main">
+        <div class="container">
+            <div class="intro-text">
+                <h2>Comprehensive Lab Solutions</h2>
+                <p>Our government-recognized labs are designed to meet the evolving needs of modern education and industry. Each lab is equipped with cutting-edge technology and follows NSDC & ASDC guidelines to ensure compliance and quality.</p>
+            </div>
+
+            <!-- Main Labs Grid -->
+            <div class="labs-main-grid">
+                <div class="lab-featured-card fade-in">
+                    <div class="lab-image">
+                        <img src="electric-vehicle-lab.jpg" alt="Electric Vehicle Lab" loading="lazy">
+                        <div class="lab-badge">Featured</div>
+                    </div>
+                    <div class="lab-content">
+                        <div class="lab-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Electric Vehicle Lab</h3>
+                        <p>Complete EV technology training covering battery management systems, motor control, charging infrastructure, and vehicle diagnostics. This lab prepares students for the rapidly growing electric vehicle industry.</p>
+                        <div class="lab-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Battery Management Systems</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Motor Control Systems</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Charging Infrastructure</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Vehicle Diagnostics</span>
+                            </div>
+                        </div>
+                        <div class="lab-actions">
+                            <a href="ev-lab.html" class="btn-primary">View Details</a>
+                            <a href="contact.html" class="btn-secondary">Get Quote</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-featured-card fade-in">
+                    <div class="lab-image">
+                        <img src="ai-machine-learning.jpg" alt="AI & Machine Learning Lab" loading="lazy">
+                    </div>
+                    <div class="lab-content">
+                        <div class="lab-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI & Machine Learning Lab</h3>
+                        <p>Advanced AI training facility with deep learning frameworks, computer vision applications, and neural network implementations. Perfect for preparing the next generation of AI engineers and researchers.</p>
+                        <div class="lab-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Deep Learning Frameworks</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Computer Vision</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Neural Networks</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Natural Language Processing</span>
+                            </div>
+                        </div>
+                        <div class="lab-actions">
+                            <a href="ai-lab.html" class="btn-primary">View Details</a>
+                            <a href="contact.html" class="btn-secondary">Get Quote</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-featured-card fade-in">
+                    <div class="lab-image">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Industrial IoT Lab" loading="lazy">
+                    </div>
+                    <div class="lab-content">
+                        <div class="lab-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Industrial IoT Lab</h3>
+                        <p>Smart manufacturing and IoT solutions featuring sensor integration, data analytics, cloud connectivity, and real-time monitoring systems for Industry 4.0 applications.</p>
+                        <div class="lab-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Sensor Integration</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Data Analytics</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Cloud Connectivity</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Real-time Monitoring</span>
+                            </div>
+                        </div>
+                        <div class="lab-actions">
+                            <a href="iot-lab.html" class="btn-primary">View Details</a>
+                            <a href="contact.html" class="btn-secondary">Get Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Labs Section -->
+    <section class="additional-labs">
+        <div class="container">
+            <h2 class="section-title">Additional Lab Solutions</h2>
+            <p class="section-subtitle">More specialized labs to enhance your institution's capabilities</p>
+            
+            <div class="labs-grid">
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Industry 4.0 Lab</h3>
+                    <ul>
+                        <li>Smart Manufacturing Systems</li>
+                        <li>Automation & Control</li>
+                        <li>Digital Twin Technology</li>
+                        <li>Predictive Maintenance</li>
+                        <li>Collaborative Robotics</li>
+                    </ul>
+                    <div class="lab-card-actions">
+                        <button class="btn-secondary">Coming Soon</button>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Robotics Lab</h3>
+                    <ul>
+                        <li>Industrial Robotics</li>
+                        <li>Collaborative Robots (Cobots)</li>
+                        <li>Machine Vision Systems</li>
+                        <li>Motion Planning & Control</li>
+                        <li>Robot Programming</li>
+                    </ul>
+                    <div class="lab-card-actions">
+                        <button class="btn-secondary">Coming Soon</button>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity Lab</h3>
+                    <ul>
+                        <li>Network Security Testing</li>
+                        <li>Ethical Hacking</li>
+                        <li>Cryptography & PKI</li>
+                        <li>Incident Response</li>
+                        <li>Vulnerability Assessment</li>
+                    </ul>
+                    <div class="lab-card-actions">
+                        <button class="btn-secondary">Coming Soon</button>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Embedded Systems Lab</h3>
+                    <ul>
+                        <li>Microcontroller Programming</li>
+                        <li>IoT Device Development</li>
+                        <li>Real-time Systems</li>
+                        <li>PCB Design & Testing</li>
+                        <li>Hardware-Software Integration</li>
+                    </ul>
+                    <div class="lab-card-actions">
+                        <button class="btn-secondary">Coming Soon</button>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>5G & Telecom Lab</h3>
+                    <ul>
+                        <li>5G Network Infrastructure</li>
+                        <li>RF Testing & Measurement</li>
+                        <li>Telecom Protocols</li>
+                        <li>Network Planning</li>
+                        <li>Signal Processing</li>
+                    </ul>
+                    <div class="lab-card-actions">
+                        <button class="btn-secondary">Coming Soon</button>
+                    </div>
+                </div>
+
+                <div class="lab-card">
+                    <div class="lab-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Computing Lab</h3>
+                    <ul>
+                        <li>Cloud Infrastructure</li>
+                        <li>DevOps & CI/CD</li>
+                        <li>Containerization</li>
+                        <li>Serverless Computing</li>
+                        <li>Multi-cloud Strategies</li>
+                    </ul>
+                    <div class="lab-card-actions">
+                        <button class="btn-secondary">Coming Soon</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Comparison Table -->
+    <section class="lab-comparison">
+        <div class="container">
+            <h2 class="section-title">Lab Comparison</h2>
+            <p class="section-subtitle">Compare our most popular lab solutions</p>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lab Type</th>
+                            <th>Setup Time</th>
+                            <th>Student Capacity</th>
+                            <th>Certification</th>
+                            <th>Government Recognition</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="lab-type">
+                                    <i class="fas fa-bolt"></i>
+                                    Electric Vehicle Lab
+                                </div>
+                            </td>
+                            <td>4-6 weeks</td>
+                            <td>30-40 students</td>
+                            <td>ASDC Certified</td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                            <td><a href="ev-lab.html" class="btn-sm">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="lab-type">
+                                    <i class="fas fa-brain"></i>
+                                    AI & ML Lab
+                                </div>
+                            </td>
+                            <td>3-4 weeks</td>
+                            <td>25-30 students</td>
+                            <td>NSDC Aligned</td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                            <td><a href="ai-lab.html" class="btn-sm">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="lab-type">
+                                    <i class="fas fa-network-wired"></i>
+                                    Industrial IoT Lab
+                                </div>
+                            </td>
+                            <td>4-5 weeks</td>
+                            <td>35-45 students</td>
+                            <td>Skill India Approved</td>
+                            <td><i class="fas fa-check text-success"></i></td>
+                            <td><a href="iot-lab.html" class="btn-sm">View Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Set Up Your Technology Lab?</h2>
+                <p>Contact us today to discuss your requirements and get a customized lab solution for your institution.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html"><button class="btn-primary">Get Free Consultation</button></a>
+                    <a href="work.html"><button class="btn-secondary">View Success Stories</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+ <!-- ============================================
+         FOOTER - ENHANCED VERSION
+    ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-grid">
+                    <!-- Company Info -->
+                    <div class="footer-about">
+                        <img src="logo.svg" alt="eSkillLab Logo" class="footer-logo-img">
+                        <p class="footer-description">Empowering the next generation of innovators through cutting-edge technology labs and hands-on training programs.</p>
+                        
+                        <!-- Newsletter Subscription -->
+                        <div class="newsletter-box">
+                            <h4>Stay Updated</h4>
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Your email address" aria-label="Email for newsletter">
+                                <button type="submit" aria-label="Subscribe to newsletter">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-column">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                            <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+                            <li><a href="labs.html"><i class="fas fa-angle-right"></i> Our Labs</a></li>
+                            <li><a href="work.html"><i class="fas fa-angle-right"></i> Portfolio</a></li>
+                            <li><a href="contact.html"><i class="fas fa-angle-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Our Labs -->
+                    <div class="footer-column">
+                        <h4 class="footer-title">Technology Labs</h4>
+                        <ul class="footer-links">
+                            <li><a href="ev-lab.html"><i class="fas fa-bolt"></i> Electric Vehicle Lab</a></li>
+                            <li><a href="ai-lab.html"><i class="fas fa-brain"></i> AI & ML Lab</a></li>
+                            <li><a href="iot-lab.html"><i class="fas fa-network-wired"></i> Industrial IoT Lab</a></li>
+                            <li><a href="labs.html"><i class="fas fa-flask"></i> View All Labs</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="footer-column">
+                        <h4 class="footer-title">Get In Touch</h4>
+                        <ul class="footer-contact">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>TechPark Complex, Coimbatore<br>Tamil Nadu 641029, India</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>+91 422 456 7890</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>info@eskilllab.com</span>
+                            </li>
+                        </ul>
+
+                        <!-- Social Links -->
+                        <div class="footer-social">
+                            <h5>Follow Us</h5>
+                            <div class="social-icons">
+                                <a href="#" aria-label="Facebook" class="social-icon facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" aria-label="Twitter" class="social-icon twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                
+                                <a href="#" aria-label="Instagram" class="social-icon instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" aria-label="YouTube" class="social-icon youtube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2025 <strong>eSkillLab Technologies</strong>. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <span class="separator">•</span>
+                        <a href="#">Terms of Service</a>
+                        <span class="separator">•</span>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <script>
+        // ===================================
+        // NAVIGATION FUNCTIONALITY
+        // ===================================
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // ===================================
+        // SMOOTH SCROLL FOR ANCHOR LINKS
+        // ===================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ===================================
+        // INTERSECTION OBSERVER FOR ANIMATIONS
+        // ===================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===================================
+        // TABLE RESPONSIVE SCROLL HINT
+        // ===================================
+        const table = document.querySelector('.comparison-table');
+        if (table && window.innerWidth < 768) {
+            table.addEventListener('scroll', function() {
+                if (this.scrollLeft > 10) {
+                    this.style.boxShadow = 'inset 10px 0 10px -10px rgba(0,0,0,0.1)';
+                } else {
+                    this.style.boxShadow = 'var(--shadow-lg)';
+                }
+            });
+        }
+
+        // ===================================
+        // LAZY LOADING IMAGES
+        // ===================================
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.src;
+            });
+        } else {
+            // Fallback for browsers that don't support lazy loading
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
+        }
+
+        // ===================================
+        // PERFORMANCE OPTIMIZATION
+        // ===================================
+        // Debounce scroll events
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                window.cancelAnimationFrame(scrollTimeout);
+            }
+            scrollTimeout = window.requestAnimationFrame(() => {
+                // Scroll-related operations here
+            });
+        }, { passive: true });
+
+        // ===================================
+        // ACCESSIBILITY ENHANCEMENTS
+        // ===================================
+        // Trap focus in mobile menu when open
+        const focusableElements = navMenu.querySelectorAll('a, button');
+        const firstFocusable = focusableElements[0];
+        const lastFocusable = focusableElements[focusableElements.length - 1];
+
+        navMenu.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab' && navMenu.classList.contains('active')) {
+                if (e.shiftKey && document.activeElement === firstFocusable) {
+                    e.preventDefault();
+                    lastFocusable.focus();
+                } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+                    e.preventDefault();
+                    firstFocusable.focus();
+                }
+            }
+            
+            // Close menu on Escape key
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                hamburger.focus();
+            }
+        });
+
+        // ===================================
+        // LOADING COMPLETE
+        // ===================================
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
